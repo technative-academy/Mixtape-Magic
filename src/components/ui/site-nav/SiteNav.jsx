@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import styles from './SiteNav.module.css';
+import { useSelector } from 'react-redux';
+import styles from './site-nav.module.css';
 
 function SiteNav() {
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
