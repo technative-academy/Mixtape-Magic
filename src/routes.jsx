@@ -1,4 +1,4 @@
-import Root from "components/ui/root/Root";
+import Root from "./components/ui/root/Root";
 import Home from "./components/views/home/Home";
 import Login from "./components/views/login/Login";
 import Register from "./components/views/register/Register";
