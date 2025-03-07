@@ -6,12 +6,15 @@ import Breadcrumb from '../breadcrumb/Breadcrumb';
 
 import CardComponent from "../cardComponent/CardComponent";
 
+import { Outlet } from "react-router-dom";
+
 function Root() {
 	return (
 		<div className={styles.wrapper}>
 			<SiteNav />
 			<Breadcrumb />
 			<CardComponent/>
+			<Outlet/>
 		</div>
 	);
 }
