@@ -2,7 +2,7 @@ import styles from './breadcrumb.module.css';
 
 function Breadcrumb() {
 	return (
-		<div className={styles.wrapper}>
+		<div className="">
 			<p>breadcrumb</p>
 		</div>
 	);

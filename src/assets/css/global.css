@@ -111,3 +111,7 @@ textarea:not([rows]) {
 
     --border-radius: 10px;
 }
+
+body {
+    background-color: var(--clr-dark);
+}
