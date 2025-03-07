@@ -1,3 +1,17 @@
+🎵 Mixtape Magic!
+🚀 Overview
+Mixtape Magic is a project that allows users to show playlists using authentication, and database integration. The project has been built using modern web technologies.
+
+🛠 Tech Stack
+React 
+Hosting: Supabase & Render
+Build Tools: Prettier, ESLint
+
+📌 Features
+🎨 Component-Based UI: Modular and scalable design
+🔐 Authentication: JWT-based auth system
+🚀 Continuous Deployment: Netlify (Frontend) & Render (Backend)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
