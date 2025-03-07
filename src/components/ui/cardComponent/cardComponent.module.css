@@ -1,0 +1,49 @@
+.collection-card {
+    background-color: hsl(0, 0%, 18%);
+    color: var(--clr-white);
+    padding: 2rem;
+    border-radius: .7rem    ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30em;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.tag {
+    font-size: 1rem;
+    color: var(--clr-gray);
+    font-weight: bold;
+}
+
+.timestamps {
+    font-size: .8rem;
+    margin-top: .5rem;
+}
+
+.created, .updated {
+    color: #888;
+    font-weight: bold;
+}
+
+.created span, .updated span {
+    color: hsl(0, 0%, 73%);
+}
+
+.icon-section {
+    display: flex;
+    align-items: center;
+    margin-top: .75rem;
+}
+
+.icon {
+    color: hsl(0, 0%, 73%);
+}
+
+.count {
+    margin-left: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+}
