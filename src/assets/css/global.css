@@ -101,9 +101,8 @@ textarea:not([rows]) {
 
 /* CSS GLOBAL STYLES */
 
-
 :root {
-    --clr-light: hsl(0, 0%, 100%);
+--clr-light: hsl(0, 0%, 100%);
     --clr-dark: hsl(231, 11%, 12%);
     --clr-dark-100: hsl(231, 9%, 16%);
     --clr-grey: hsl(230, 5%, 21%);

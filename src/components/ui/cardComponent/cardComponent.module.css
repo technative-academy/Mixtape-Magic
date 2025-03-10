@@ -1,10 +1,8 @@
-.collection-card {
-    background-color: hsl(0, 0%, 18%);
+.collectionCard {
+    background-color: var( --clr-grey);
     color: var(--clr-white);
     padding: 2rem;
-    border-radius: .7rem    ;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 30em;
+    border-radius: .7rem;
 }
 
 .title {
@@ -32,7 +30,7 @@
     color: hsl(0, 0%, 73%);
 }
 
-.icon-section {
+.iconSection {
     display: flex;
     align-items: center;
     margin-top: .75rem;
