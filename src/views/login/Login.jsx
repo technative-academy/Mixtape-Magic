@@ -1,10 +1,32 @@
 const Login = () => {
     return (
-      <div>
-        <h1>Welcome to Mixtape Magic</h1>
-        <p>Discover and create amazing playlists!</p>
-      </div>
-    );
-  };
-  
-  export default Login;
+    <div>
+      <form>
+        <label>
+          <p>Email</p>
+          <input
+            type="email"
+            placeholder="Email"
+            required
+          />
+        </label>
+
+        <label>
+          <p>Password</p>
+          <input
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </label>
+        <div>
+          <button type="submit" >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

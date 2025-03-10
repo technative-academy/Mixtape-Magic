@@ -13,7 +13,7 @@ function Header() {
 	];
 
 	if (!isLoggedIn) {
-		navLinks.push({ label: 'Sign up', url: '/signup/' });
+		navLinks.push({ label: 'Sign up', url: '/register/' });
 		navLinks.push({ label: 'Log in', url: '/login/' });
 	}
 

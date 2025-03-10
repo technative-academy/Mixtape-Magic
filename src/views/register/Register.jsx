@@ -1,11 +1,48 @@
 const Register = () => {
     return (
-      <div>
-        <h1>Welcome to Mixtape Magic</h1>
-        <p>Discover and create amazing playlists!</p>
-      </div>
-    );
-  };
-  
-  export default Register;
-   
+    <div>
+        <form>
+          <label>
+          <p>Name</p>
+          <input
+            type="name"
+            placeholder="Name"
+            required
+          />
+        </label>
+        <label>
+          <p>Email</p>
+          <input
+            type="email"
+            placeholder="Email"
+            required
+          />
+        </label>
+
+        <label>
+          <p>Password</p>
+          <input
+            type="password"
+            placeholder="Password"
+            required
+          />
+          </label>
+           <label>
+          <p>Bio</p>
+          <input
+            type="bio"
+            placeholder="Bio"
+            required
+          />
+        </label>
+        <div>
+          <button type="submit" >
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Register;
