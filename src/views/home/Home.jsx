@@ -1,9 +1,8 @@
+import Main from '../../components/ui/main/Main';
+
 const Home = () => {
     return (
-      <div>
-        <h1>Welcome to Mixtape Magic</h1>
-        <p>Discover and create amazing playlists!</p>
-      </div>
+      <Main />
     );
   };
   
