@@ -16,7 +16,6 @@ const routes = [
             { path: '', element: <Home /> },
             { path: 'login/', element: <Login /> },
             { path: 'register/', element: <Register /> },
-            { path: "playlists", element: <PlaylistList /> },
             { path: 'playlist/:id/', element: <Playlist /> },
             {
                 path: 'playlist/add/',
