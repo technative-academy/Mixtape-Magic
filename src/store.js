@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-
+import { configureStore } from '@reduxjs/toolkit'
 // import authReducer from './slices/authSlice';
 import playlistReducer from "./slices/playlistSlice";
 
@@ -10,4 +9,4 @@ const store = configureStore({
 	},
 });
 
-export default store;
+export default store

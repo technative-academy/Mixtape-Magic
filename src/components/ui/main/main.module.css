@@ -1,7 +1,5 @@
 .main {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
     background-color: var(--clr-dark-100);
     padding: 2em;
-    gap: 1em;
+    border-radius: 20px;
 }

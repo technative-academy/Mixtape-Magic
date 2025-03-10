@@ -1,7 +1,7 @@
 .footer {
     margin-top: auto;
     color: var(--clr-light);
-    font-size: .75rem;
+    font-size: 0.75rem;
 
     display: flex;
     flex-wrap: wrap;
@@ -25,23 +25,22 @@
         display: block;
         position: relative;
 
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: -5px;
-			left: 0;
-			width: 0%;
-			height: 2px;
-			border-radius: var(--border-radius);
-			background-color: var(--clr-accent);
-			transition: width 350ms ease-in-out;
-		}
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            border-radius: var(--border-radius);
+            background-color: var(--clr-accent);
+            transition: width 350ms ease-in-out;
+        }
 
-		&:hover::after {
-			content: '';
-			width: 100%;
-			transition: width 350ms ease-in-out;
-		}
+        &:hover::after {
+            content: '';
+            width: 100%;
+            transition: width 350ms ease-in-out;
+        }
     }
-
 }
