@@ -1,0 +1,25 @@
+.search {
+    --border-radius-2: calc(var(--border-radius)*2);
+    display: flex;
+
+    .search__input {
+        border-top-left-radius: var(--border-radius-2);
+        border-bottom-left-radius: var(--border-radius-2);
+        border: 0;
+        padding: .75em 2em;
+        width: 25%;
+        background-color:  var(--clr-dark);
+        color: var(--clr-light);
+    
+    }   
+
+    .search__icon {
+        background-color: var(--clr-accent);
+        border: 0;
+        width: 2em;
+        aspect-ratio: 1/1;
+        border-top-right-radius: var(--border-radius-2);
+        border-bottom-right-radius: var(--border-radius-2);
+ 
+    }
+}
