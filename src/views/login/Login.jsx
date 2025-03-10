@@ -20,7 +20,7 @@ const Login = () => {
           />
         </label>
         <div>
-          <button type="submit" >
+          <button type="submit">
             Login
           </button>
         </div>
