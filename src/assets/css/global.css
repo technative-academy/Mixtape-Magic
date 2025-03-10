@@ -5,15 +5,18 @@
     --body-line-height: 1.5;
     --heading-line-height: 1.1;
 
-    --font-family: "Inter", serif;
+    --font-family: 'Inter', serif;
 }
 
 /* applying box-sizing of border-box */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-html, html:focus-within {
+html,
+html:focus-within {
     /* add smooth scroll to the page */
     scroll-behavior: smooth;
     hanging-punctuation: first last;
@@ -38,7 +41,7 @@ body {
 }
 
 /* makes paragraphs wrap in a readable way, and prevents paragraphs being too long */
-:where(p,li,figcaption) {
+:where(p, li, figcaption) {
     text-wrap: pretty;
     max-width: 75ch;
 }
@@ -49,12 +52,12 @@ body {
 }
 
 /* remove bottom border from these elements to prevent double margins and have better control over flow of the page */
-:where(h1,h2,h3,h4,p,figure,blockquote,dl,dd) {
+:where(h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
     margin-block-end: 0;
 }
 
 /* removing default styling from lists with classes */
-:where(ul,ol):where([class]) {
+:where(ul, ol):where([class]) {
     list-style: '';
 }
 
@@ -65,13 +68,13 @@ body {
 }
 
 /* make font elements inherit font styles (they do not by default) */
-:where(input,button,textarea,select) {
+:where(input, button, textarea, select) {
     font-family: inherit;
     font-size: inherit;
 }
 
 /* give all non disabled buttons a pointer cursor */
-:where(input[type="submit"], button):not(:disabled) {
+:where(input[type='submit'], button):not(:disabled) {
     cursor: pointer;
 }
 
@@ -85,28 +88,24 @@ a {
     }
 }
 
-
 /* give some height to textareas with no rows */
 textarea:not([rows]) {
     min-height: 10rem;
 }
-
 
 /* add some marging to anchored elements */
 :target {
     scroll-margin-block: 5ex;
 }
 
-
-
 /* CSS GLOBAL STYLES */
 
 :root {
---clr-light: hsl(0, 0%, 100%);
+    --clr-light: hsl(0, 0%, 100%);
     --clr-dark: hsl(231, 11%, 12%);
     --clr-dark-100: hsl(231, 9%, 16%);
     --clr-grey: hsl(230, 5%, 21%);
-    --clr-accent:  hsl(54, 84%, 51%);
+    --clr-accent: hsl(54, 84%, 51%);
 
     --border-radius: 10px;
 }
