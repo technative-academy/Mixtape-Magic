@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPlaylists } from "../slices/playlistSlice";
+import { fetchPlaylists } from "../../slices/playlistSlice";
 import "../assets/css/global.css";
 
 const PlaylistList = () => {
