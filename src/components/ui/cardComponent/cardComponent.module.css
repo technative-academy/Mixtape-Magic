@@ -1,8 +1,8 @@
 .collectionCard {
-    background-color: var( --clr-grey);
+    background-color: var(--clr-grey);
     color: var(--clr-white);
     padding: 2rem;
-    border-radius: .7rem;
+    border-radius: 0.7rem;
 }
 
 .title {
@@ -17,23 +17,25 @@
 }
 
 .timestamps {
-    font-size: .8rem;
-    margin-top: .5rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
 }
 
-.created, .updated {
+.created,
+.updated {
     color: #888;
     font-weight: bold;
 }
 
-.created span, .updated span {
+.created span,
+.updated span {
     color: hsl(0, 0%, 73%);
 }
 
 .iconSection {
     display: flex;
     align-items: center;
-    margin-top: .75rem;
+    margin-top: 0.75rem;
 }
 
 .icon {
