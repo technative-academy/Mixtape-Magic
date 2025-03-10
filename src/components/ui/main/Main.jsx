@@ -1,17 +1,14 @@
-import styles from './main.module.css'
-import CardComponent from '../cardComponent/CardComponent'
+import styles from "./main.module.css";
+import CardComponentList from "../cardComponentList/cardComponentList";
+import Search from "../seacrh/Search";
 
 function Main() {
-    return (
-        <main className={styles.main}>
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-        </main>
-    )
-}
+  return (
+    <main className={styles.main}>
+      <Search />
+      <CardComponentList />
+    </main>
+  );
+};
 
 export default Main
