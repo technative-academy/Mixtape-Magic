@@ -15,8 +15,13 @@ function CardComponent(props) {
             />
             <div className={styles.card__details}>
                 <p className={styles.card__title}>{playlist.name}</p>
+
                 <small className={styles.card__tag}>tag</small>
                 <small className={styles.card__tag}>rock</small>
+
+                <p className={styles.card__user}>
+                    User <b>{playlist.owner}</b>
+                </p>
 
                 <small className={styles.card__time}>
                     Made <b>{playlist.dateCreated}</b>

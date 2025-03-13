@@ -1,5 +1,6 @@
 .card {
     --clr-box-shadow: rgba(0, 0, 0, 0.151);
+    --clr-ouline-color: rgba(255, 255, 0, 0.37);
 
     background-color: var(--clr-grey);
     color: var(--clr-light);
@@ -11,9 +12,10 @@
     display: flex;
     gap: 1em;
 
-    &:hover {
+    &:hover,
+    &:focus-within {
         box-shadow: var(--clr-box-shadow) -10px 20px 10px;
-        outline: 1px solid rgba(255, 255, 0, 0.37);
+        outline: 1px solid var(--clr-ouline-color);
 
         .card__play {
             transition: transform 200ms ease-out;
@@ -29,12 +31,19 @@
     .card__title {
         font-weight: 700;
         font-size: 1.75rem;
-        margin-block: 0 0.25em;
+        margin-block: 0;
+    }
+
+    .card__user {
+        /* margin-block: 0 0.5em; */
+        b {
+            color: var(--clr-accent);
+        }
     }
 
     .card__tag {
         background-color: var(--clr-dark-100);
-        border-radius: calc(var(--border-radius) * 2);
+        border-radius: var(--border-radius);
         color: var(clr-accent);
         text-transform: lowercase;
         padding: 0.5em;
@@ -44,7 +53,7 @@
 
     .card__time {
         display: block;
-        margin-top: 100%;
+        margin-top: 80%;
     }
 
     .card__play {
