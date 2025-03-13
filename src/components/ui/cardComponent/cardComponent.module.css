@@ -31,7 +31,7 @@
     .card__title {
         font-weight: 700;
         font-size: 1.75rem;
-        margin-block: 0;
+        margin-block: 0 0.125em;
     }
 
     .card__user {
