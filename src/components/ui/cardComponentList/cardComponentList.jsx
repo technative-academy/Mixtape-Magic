@@ -18,14 +18,9 @@ function CardComponentList() {
         <div className={styles.playlists}>
             {status === 'loading' && <div>Loading...</div>}
             {status === 'failed' && <div>{error}</div>}
-            <ul className="list">
-                {playlists.map((playlist) => (
-                    <li className="item" key={playlist.id}>
-                        
-                        <CardComponent playlist={playlist} />
-                    </li>
-                ))}
-            </ul>
+            {playlists.map((playlist) => (
+                <CardComponent playlist={playlist} />
+            ))}
         </div>
     )
 }

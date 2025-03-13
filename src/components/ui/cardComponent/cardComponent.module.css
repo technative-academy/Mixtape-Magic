@@ -1,49 +1,71 @@
-.collectionCard {
+.card {
+    --clr-box-shadow: rgba(0, 0, 0, 0.151);
+
     background-color: var(--clr-grey);
-    color: var(--clr-white);
-    padding: 2rem;
-    border-radius: 0.7rem;
-}
+    color: var(--clr-light);
+    padding: 1em;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: box-shadow 350ms ease-out;
 
-.title {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.tag {
-    font-size: 1rem;
-    color: var(--clr-gray);
-    font-weight: bold;
-}
-
-.timestamps {
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-}
-
-.created,
-.updated {
-    color: #888;
-    font-weight: bold;
-}
-
-.created span,
-.updated span {
-    color: hsl(0, 0%, 73%);
-}
-
-.iconSection {
     display: flex;
-    align-items: center;
-    margin-top: 0.75rem;
-}
+    gap: 1em;
 
-.icon {
-    color: hsl(0, 0%, 73%);
-}
+    &:hover {
+        box-shadow: var(--clr-box-shadow) -10px 20px 10px;
+        outline: 1px solid rgba(255, 255, 0, 0.37);
 
-.count {
-    margin-left: 8px;
-    font-size: 1rem;
-    font-weight: bold;
+        .card__play {
+            transition: transform 200ms ease-out;
+            transform: translateY(0);
+        }
+    }
+
+    .card__img {
+        border-radius: 10px;
+        width: 40%;
+    }
+
+    .card__title {
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin-block: 0 0.25em;
+    }
+
+    .card__tag {
+        background-color: var(--clr-dark-100);
+        border-radius: calc(var(--border-radius) * 2);
+        color: var(clr-accent);
+        text-transform: lowercase;
+        padding: 0.5em;
+        margin-right: 0.25em;
+        color: var(--clr-accent);
+    }
+
+    .card__time {
+        display: block;
+        margin-top: 100%;
+    }
+
+    .card__play {
+        background-color: var(--clr-accent);
+        border-radius: 50%;
+        width: 3em;
+        aspect-ratio: 1/1;
+        border: 0;
+
+        display: grid;
+        place-content: center;
+
+        align-self: end;
+        margin-left: auto;
+
+        transform: translateY(5em);
+
+        img {
+            width: 1em;
+            filter: invert(12%) sepia(6%) saturate(1104%) hue-rotate(194deg)
+                brightness(95%) contrast(91%);
+        }
+    }
 }

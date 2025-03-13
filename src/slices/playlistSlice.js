@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 // API
-const API_URL = 'https://mixtape-magic-api.onrender.com/api/playlists/'
+// const API_URL = 'https://mixtape-magic-api.onrender.com/api/playlists/'
+
+const API_URL = 'http://localhost:3001/api/playlists'
 
 export const fetchPlaylists = createAsyncThunk(
     'playlists/fetchPlaylists',
