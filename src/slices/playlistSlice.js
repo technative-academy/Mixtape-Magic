@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 // API
-const API_URL = 'https://mixtape-magic-api.onrender.com/api/playlists/'
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const fetchPlaylists = createAsyncThunk(
     'playlists/fetchPlaylists',
