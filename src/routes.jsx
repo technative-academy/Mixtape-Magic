@@ -3,9 +3,11 @@ import Home from './views/home/Home'
 import Login from './views/login/Login'
 import Register from './views/register/Register'
 import Playlist from './views/playlist/Playlist'
+import MyPlaylists from './views/my-playlists/MyPlaylists'
 import AddPlaylist from './views/add-playlist/AddPlaylist'
 import AddSong from './views/add-song/AddSong'
 import Edit from './views/edit/Edit'
+import Users from './views/users/Users'
 import ProtectedRoute from './components/ui/protected-route/ProtectedRoute'
 
 const routes = [
@@ -17,6 +19,7 @@ const routes = [
             { path: 'login/', element: <Login /> },
             { path: 'register/', element: <Register /> },
             { path: 'playlist/:id/', element: <Playlist /> },
+            { path: 'myplaylists', element: <MyPlaylists /> },
             {
                 path: 'playlist/add/',
                 element: <ProtectedRoute element={<AddPlaylist />} />,
@@ -29,6 +32,8 @@ const routes = [
                 path: 'playlist/:id/edit/',
                 element: <ProtectedRoute element={<Edit />} />,
             },
+
+            { path: 'users', element: <Users /> },
         ],
     },
 ]

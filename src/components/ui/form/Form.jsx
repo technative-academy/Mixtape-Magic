@@ -1,5 +1,5 @@
 import styles from './form.module.css'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Form(props) {
     let { type } = props
@@ -27,7 +27,7 @@ function Form(props) {
 
                     <small>
                         New to Mixtape Magic?{' '}
-                        <NavLink to="/register">Create account</NavLink>
+                        <Link to="/register">Create account</Link>
                     </small>
                 </form>
             ) : (
@@ -57,8 +57,7 @@ function Form(props) {
                     </div>
                     <button type="submit">Create account</button>
                     <small>
-                        Already have an account?{' '}
-                        <NavLink to="/login">log in</NavLink>
+                        Already have an account? <Link to="/login">log in</Link>
                     </small>
                 </form>
             )}

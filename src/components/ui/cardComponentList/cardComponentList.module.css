@@ -2,5 +2,4 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
-    margin-top: 1.5em;
 }

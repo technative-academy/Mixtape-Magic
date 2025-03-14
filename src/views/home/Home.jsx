@@ -1,6 +1,6 @@
 import Main from '../../components/ui/main/Main'
 
-const Home = () => {
+function Home() {
     return <Main />
 }
 
