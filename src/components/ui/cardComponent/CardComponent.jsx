@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from './cardComponent.module.css'
 import logo from '../../../assets/img/thumbnail.jpg'
 import playLogo from '../../../assets/img/play-button.png'
@@ -7,7 +7,7 @@ import playLogo from '../../../assets/img/play-button.png'
 function CardComponent(props) {
     const { playlist } = props
     return (
-        <NavLink className={styles.card} to={`/playlist/${playlist.id}/`}>
+        <Link className={styles.card} to={`/playlist/${playlist.id}/`}>
             <img
                 src={logo} // add playList.coverImage when possible
                 alt="The logo of the company"
@@ -31,7 +31,7 @@ function CardComponent(props) {
             <button className={styles.card__play}>
                 <img src={playLogo} />
             </button>
-        </NavLink>
+        </Link>
     )
 }
 
