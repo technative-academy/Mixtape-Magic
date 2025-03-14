@@ -35,7 +35,6 @@
     }
 
     .card__user {
-        /* margin-block: 0 0.5em; */
         b {
             color: var(--clr-accent);
         }
@@ -53,7 +52,7 @@
 
     .card__time {
         display: block;
-        margin-top: 80%;
+        margin-top: 3.5em;
     }
 
     .card__play {

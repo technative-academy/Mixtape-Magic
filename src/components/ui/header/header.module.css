@@ -13,11 +13,11 @@
     .nav__link {
         position: relative;
         color: var(--clr-light);
-        transition: color 350ms ease-in-out;
+        transition: color 275ms ease-in-out;
 
         &:hover {
             color: var(--clr-accent);
-            transition: color 350ms ease-in-out;
+            transition: color 275ms ease-in-out;
         }
 
         &::after {
@@ -29,13 +29,13 @@
             height: 4px;
             border-radius: var(--border-radius);
             background-color: var(--clr-accent);
-            transition: width 350ms ease-in-out;
+            transition: width 275ms ease-in-out;
         }
 
         &:hover::after {
             content: '';
             width: 100%;
-            transition: width 350ms ease-in-out;
+            transition: width 275ms ease-in-out;
         }
 
         &:nth-of-type(2) {
