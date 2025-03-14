@@ -7,7 +7,7 @@ import playLogo from '../../../assets/img/play-button.png'
 function CardComponent(props) {
     const { playlist } = props
     return (
-        <NavLink className={styles.card} to={`/playlists/${playlist.id}/`}>
+        <NavLink className={styles.card} to={`/playlist/${playlist.id}/`}>
             <img
                 src={logo} // add playList.coverImage when possible
                 alt="The logo of the company"
