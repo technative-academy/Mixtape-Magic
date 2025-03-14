@@ -1,24 +1,23 @@
 .nav {
     display: flex;
-    padding: 2em;
     gap: 2em;
     font-weight: 700;
+    padding-block: 2em;
     align-items: center;
+    margin-bottom: 2em;
 
-    a {
+    img {
+        width: 3.5em;
+    }
+
+    .nav__link {
         position: relative;
-        font-size: 1.2rem;
         color: var(--clr-light);
-        transition: color 350ms ease-in-out;
+        transition: color 275ms ease-in-out;
 
         &:hover {
             color: var(--clr-accent);
-            transition: color 350ms ease-in-out;
-        }
-
-        &:nth-child(2) {
-            font-size: 1.3rem;
-            margin-right: auto;
+            transition: color 275ms ease-in-out;
         }
 
         &::after {
@@ -30,21 +29,17 @@
             height: 4px;
             border-radius: var(--border-radius);
             background-color: var(--clr-accent);
-            transition: width 350ms ease-in-out;
+            transition: width 275ms ease-in-out;
         }
 
         &:hover::after {
             content: '';
             width: 100%;
-            transition: width 350ms ease-in-out;
+            transition: width 275ms ease-in-out;
+        }
+
+        &:nth-of-type(2) {
+            margin-left: auto;
         }
     }
-}
-
-.activeLink {
-    color: #000;
-}
-
-.inactiveLink {
-    color: #666;
 }

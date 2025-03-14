@@ -7,7 +7,7 @@ function Header() {
     // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const isLoggedIn = false
 
-    const navLinks = [{ label: 'Home', url: '/' }]
+    const navLinks = []
 
     if (!isLoggedIn) {
         navLinks.push({ label: 'Sign up', url: '/register/' })
@@ -20,19 +20,15 @@ function Header() {
 
     return (
         <nav className={styles.nav}>
-            <img
-                src={logo}
-                alt="The logo of the company"
-                width={50}
-                height={50}
-            />
+            <NavLink to="/">
+                <img src={logo} alt="The logo of the company" />
+            </NavLink>
+
             {navLinks.map((navLink) => (
                 <NavLink
                     key={navLink.url}
                     to={navLink.url}
-                    className={({ isActive }) =>
-                        isActive ? styles.activeLink : styles.inactiveLink
-                    }
+                    className={styles.nav__link}
                 >
                     {navLink.label}
                 </NavLink>

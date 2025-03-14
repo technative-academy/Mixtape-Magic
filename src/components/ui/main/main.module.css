@@ -1,5 +1,5 @@
 .main {
     background-color: var(--clr-dark-100);
-    padding: 2em;
-    border-radius: 20px;
+    padding: 1em;
+    border-radius: var(--border-radius);
 }

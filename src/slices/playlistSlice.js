@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+// const API_URL = 'http://localhost:3001/api/playlists'
 
 // API env
 const API_URL = `${import.meta.env.VITE_API_URL}/api/playlists`;

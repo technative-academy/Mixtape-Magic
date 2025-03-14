@@ -1,22 +1,7 @@
-const Login = () => {
-    return (
-        <div>
-            <form>
-                <label>
-                    <p>Email</p>
-                    <input type="email" placeholder="Email" required />
-                </label>
+import Form from '../../components/ui/form/Form'
 
-                <label>
-                    <p>Password</p>
-                    <input type="password" placeholder="Password" required />
-                </label>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-        </div>
-    )
+const Login = () => {
+    return <Form type="Login" />
 }
 
 export default Login
