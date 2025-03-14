@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import apiService from '../services/apiService'
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-    const response = await apiService('users', { method: 'GET' })
+    const response = await apiService('api/users', { method: 'GET' })
     return response
 })
 
 export const fetchUser = createAsyncThunk('users/fetchUser', async (id) => {
-    const response = await apiService(`users/${id}`, { method: 'GET' })
+    const response = await apiService(`api/users/${id}`, { method: 'GET' })
     return response
 })
 
