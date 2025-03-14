@@ -1,29 +1,52 @@
 import styles from './form.module.css'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function Form(props) {
-    let { type } = props
-    console.log(type)
+    let { type, onSubmit, isLoading, error } = props
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        onSubmit({ username, password, email })
+    }
 
     return (
         <>
             {type == 'Login' ? (
-                <form className={styles.form}>
+                <form className={styles.form} onSubmit={handleSubmit}>
                     <legend className={styles.form__legend}>Log in</legend>
 
                     <p className={styles.form__cta}>to continue to Mixtape</p>
 
                     <div className={styles.form__group}>
-                        <label for="name">Username</label>
-                        <input name="name" type="text" required />
+                        <label htmlFor="email">Email</label>
+                        <input
+                            name="email"
+                            type="email"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
 
                     <div className={styles.form__group}>
-                        <label for="password">Password</label>
-                        <input type="password" required />
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
 
-                    <button type="submit">Log in</button>
+                    <button type="submit" disabled={isLoading ? true : false}>
+                        Log in
+                    </button>
+
+                    {error ? <p>Error: {error}</p> : null}
 
                     <small>
                         New to Mixtape Magic?{' '}
@@ -31,7 +54,7 @@ function Form(props) {
                     </small>
                 </form>
             ) : (
-                <form className={styles.form}>
+                <form className={styles.form} onSubmit={handleSubmit}>
                     <legend className={styles.form__legend}>Sign up</legend>
 
                     <p className={styles.form__cta}>
@@ -39,23 +62,40 @@ function Form(props) {
                     </p>
 
                     <div className={styles.form__group}>
-                        <label for="name">Username</label>
-                        <input name="name" type="text" required />
+                        <label htmlFor="username">Username</label>
+                        <input
+                            name="username"
+                            type="text"
+                            required
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
                     </div>
                     <div className={styles.form__group}>
-                        <label for="email">Email</label>
-                        <input type="email" required />
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
 
                     <div className={styles.form__group}>
-                        <label for="password">Password</label>
-                        <input type="password" required />
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
-                    <div className={styles.form__group}>
-                        <label for="bio">Bio</label>
-                        <textarea type="bio" required />
-                    </div>
-                    <button type="submit">Create account</button>
+                    <button type="submit" disabled={isLoading ? true : false}>
+                        Create account
+                    </button>
+
+                    {error ? <p>Error: {error}</p> : null}
+
                     <small>
                         Already have an account? <Link to="/login">log in</Link>
                     </small>

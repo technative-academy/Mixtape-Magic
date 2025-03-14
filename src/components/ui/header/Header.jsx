@@ -1,11 +1,16 @@
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../../slices/authSlice'
 import styles from './header.module.css'
 import logo from '../../../assets/img/logo.png'
 
 function Header() {
-    // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-    const isLoggedIn = false
+    const dispatch = useDispatch()
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+
+    const handleLogout = () => {
+        dispatch(logout())
+    }
 
     const navLinks = []
 
@@ -33,6 +38,14 @@ function Header() {
                     {navLink.label}
                 </NavLink>
             ))}
+
+            {isLoggedIn ? (
+                <button className={styles.nav__link} onClick={handleLogout}>
+                    Logout
+                </button>
+            ) : (
+                <></>
+            )}
         </nav>
     )
 }
