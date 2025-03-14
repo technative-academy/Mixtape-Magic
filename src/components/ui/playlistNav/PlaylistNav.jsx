@@ -2,7 +2,7 @@ import styles from './playlistnav.module.css'
 import { NavLink } from 'react-router-dom'
 
 function PlaylistNav() {
-    const isLoggedIn = false
+    const isLoggedIn = true
 
     const links = []
 
@@ -17,7 +17,14 @@ function PlaylistNav() {
             <NavLink to="/">All collections</NavLink>
 
             {links.map((link) => (
-                <NavLink to={link.url}>{link.label}</NavLink>
+                <NavLink
+                    to={link.url}
+                    className={({ isActive }) =>
+                        isActive ? 'active-link' : 'no'
+                    }
+                >
+                    {link.label}
+                </NavLink>
             ))}
         </div>
     )

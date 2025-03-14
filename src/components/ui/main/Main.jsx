@@ -5,7 +5,7 @@ import PlaylistNav from '../playlistNav/PlaylistNav'
 
 function Main() {
     return (
-        <main className>
+        <main>
             <PlaylistNav />
             <section className={styles.main}>
                 <h1>Dashboard</h1>
