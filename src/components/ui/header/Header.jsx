@@ -19,10 +19,6 @@ function Header() {
         navLinks.push({ label: 'Log in', url: '/login/' })
     }
 
-    if (isLoggedIn) {
-        navLinks.push({ label: 'Users', url: '/users/' })
-    }
-
     return (
         <nav className={styles.nav}>
             <NavLink to="/">
@@ -40,7 +36,7 @@ function Header() {
             ))}
 
             {isLoggedIn ? (
-                <button className={styles.nav__link} onClick={handleLogout}>
+                <button className={styles.nav__logout} onClick={handleLogout}>
                     Logout
                 </button>
             ) : (
