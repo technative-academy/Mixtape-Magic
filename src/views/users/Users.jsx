@@ -1,9 +1,8 @@
 import styles from '../../components/ui/main/main.module.css'
-import Search from '../../components/ui/seacrh/Search'
+import userStyles from './user.module.css'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import { fetchUsers } from '../../slices/usersSlice'
 
 function Users() {
@@ -20,19 +19,22 @@ function Users() {
     return (
         <main>
             <PlaylistNav />
-            <section>
+            <section className={styles.main}>
                 <h1>Users</h1>
                 {status === 'loading' && <div>Loading...</div>}
                 {status === 'failed' && <div>{error}</div>}
-                <ul>
+                <div className={userStyles.users}>
                     {users.map((user) => (
-                        <li key={user.id}>
-                            <NavLink to={`/users/${user.id}/`}>
-                                {user.username}
-                            </NavLink>
-                        </li>
+                        <div className={userStyles.users__card}>
+                            <img
+                                src="https://images.unsplash.com/photo-1718501593189-5d7d4bdf5702?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="The logo of the company"
+                                className={styles.card__img}
+                            />
+                            {user.username}
+                        </div>
                     ))}
-                </ul>
+                </div>
             </section>
         </main>
     )
