@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './cardComponent.module.css'
-import logo from '../../../assets/img/thumbnail.jpg'
+import thumbnail from '../../../assets/img/thumbnail.jpg'
 import playLogo from '../../../assets/img/play-button.png'
 
 function CardComponent(props) {
     const { playlist } = props
     return (
-        <Link className={styles.card} to={`/playlist/${playlist.id}/`}>
+        <Link className={styles.card} to={`/playlist/${playlist.ID}/`}>
             <img
-                src={logo} // add playList.coverImage when possible
-                alt="The logo of the company"
+                src={thumbnail} // add playList.coverImage when possible
+                alt="The thumbnail of the playlist"
                 className={styles.card__img}
             />
             <div className={styles.card__details}>
