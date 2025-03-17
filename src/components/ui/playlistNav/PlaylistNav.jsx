@@ -1,9 +1,9 @@
+import { useSelector } from 'react-redux'
 import styles from './playlistnav.module.css'
 import { NavLink } from 'react-router-dom'
 
 function PlaylistNav() {
-    const isLoggedIn = true
-
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
     const links = []
 
     if (isLoggedIn) {
