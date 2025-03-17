@@ -6,8 +6,9 @@ import playLogo from '../../../assets/img/play-button.png'
 
 function CardComponent(props) {
     const { playlist } = props
+    console.log(playlist)
     return (
-        <Link className={styles.card} to={`/playlist/${playlist.ID}/`}>
+        <Link className={styles.card} to={`/playlist/${playlist.id}/`}>
             <img
                 src={thumbnail} // add playList.coverImage when possible
                 alt="The thumbnail of the playlist"
@@ -20,7 +21,7 @@ function CardComponent(props) {
                 <small className={styles.card__tag}>rock</small>
 
                 <p className={styles.card__user}>
-                    User <b>{playlist.owner}</b>
+                    User <b>{playlist.owner.username}</b>
                 </p>
 
                 <small className={styles.card__time}>
