@@ -8,6 +8,7 @@ import LoadingComponent from '../../components/ui/loadingComponent/LoadingCompon
 import styles from '../../components/ui/main/main.module.css'
 import thumbnail from '../../assets/img/thumbnail.jpg'
 import playlistStyles from './playlist.module.css'
+import { Link } from 'react-router-dom'
 
 const Playlist = () => {
     const {
@@ -17,8 +18,6 @@ const Playlist = () => {
     } = useSelector((state) => state.singlePlaylist)
     const { id } = useParams()
     const dispatch = useDispatch()
-
-    console.log(id)
 
     useEffect(() => {
         if (id) {
@@ -76,6 +75,9 @@ const Playlist = () => {
                             </div>
                         ))}
                     </section>
+                    <Link to={`/playlist/${id}/edit/`}>
+                        <button>Edit Playlist</button>
+                    </Link>
                 </div>
             </section>
         </main>
