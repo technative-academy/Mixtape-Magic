@@ -23,9 +23,12 @@ function CardComponent(props) {
                 <p className={styles.card__user}>
                     User <b>{playlist.owner.username}</b>
                 </p>
+                <p className={styles.card__user}>
+                    Track Count <b>{playlist.song_count}</b>
+                </p>
 
-                <small className={styles.card__time}>
-                    Made <b>{playlist.dateCreated}</b>
+                <small className={styles.card__user}>
+                    Date Created <b>{playlist.date_created.substring(0, 10)}</b>
                 </small>
             </div>
 
