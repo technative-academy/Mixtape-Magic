@@ -1,4 +1,5 @@
 import CardComponent from '../cardComponent/CardComponent'
+import LoadingComponent from '../loadingComponent/LoadingComponent'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPlaylists } from '../../../slices/playlistSlice'
@@ -16,7 +17,7 @@ function CardComponentList() {
 
     return (
         <div className={styles.playlists}>
-            {status === 'loading' && <div>Loading...</div>}
+            {status === 'loading' && <LoadingComponent />}
             {status === 'failed' && <div>{error}</div>}
             {playlists.map((playlist) => (
                 <CardComponent playlist={playlist} />
