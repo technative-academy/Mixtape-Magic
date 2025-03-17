@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './cardComponent.module.css'
 import thumbnail from '../../../assets/img/thumbnail.jpg'
 import playLogo from '../../../assets/img/play-button.png'
+import { format } from 'date-fns'
 
 function CardComponent(props) {
     const { playlist } = props
@@ -28,7 +29,10 @@ function CardComponent(props) {
                 </p>
 
                 <small className={styles.card__user}>
-                    Date Created <b>{playlist.date_created.substring(0, 10)}</b>
+                    Date Created{' '}
+                    <b>
+                        {format(new Date(playlist.date_created), 'yyyy-MM-dd')}
+                    </b>
                 </small>
             </div>
 
