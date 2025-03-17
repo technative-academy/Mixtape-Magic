@@ -1,5 +1,6 @@
 import styles from '../../components/ui/main/main.module.css'
 import userStyles from './user.module.css'
+import LoadingComponent from '../../components/ui/loadingComponent/LoadingComponent'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,8 +22,9 @@ function Users() {
             <PlaylistNav />
             <section className={styles.main}>
                 <h1>Users</h1>
-                {status === 'loading' && <div>Loading...</div>}
+                {status === 'loading' && <LoadingComponent />}
                 {status === 'failed' && <div>{error}</div>}
+
                 <div className={userStyles.users}>
                     {users.map((user) => (
                         <div className={userStyles.users__card}>

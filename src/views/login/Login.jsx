@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../slices/authSlice'
+import LoadingComponent from '../../components/ui/loadingComponent/LoadingComponent'
 
 import Form from '../../components/ui/form/Form'
 
@@ -9,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate()
     const authStatus = useSelector((state) => state.auth.status)
     const authError = useSelector((state) => state.auth.error)
-    const isLoading = authStatus === 'loading'
+    const isLoading = authStatus === <LoadingComponent />
 
     const handleLogin = async ({ email, password }) => {
         try {

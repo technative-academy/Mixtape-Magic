@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import authService from '../../services/authService'
 import { login } from '../../slices/authSlice'
 import Form from '../../components/ui/form/Form'
+import LoadingComponent from '../../components/ui/loadingComponent/LoadingComponent'
 
 const Register = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const authStatus = useSelector((state) => state.auth.status)
     const authError = useSelector((state) => state.auth.error)
-    const isLoading = authStatus === 'loading'
+    const isLoading = authStatus === <LoadingComponent />
 
     const handleRegister = async ({ username, email, password }) => {
         try {
