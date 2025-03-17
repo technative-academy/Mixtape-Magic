@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './cardComponent.module.css'
 import thumbnail from '../../../assets/img/thumbnail.jpg'
 import playLogo from '../../../assets/img/play-button.png'
-import { format } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns'
 
 function CardComponent(props) {
     const { playlist } = props
@@ -31,7 +31,9 @@ function CardComponent(props) {
                 <small className={styles.card__user}>
                     Date Created{' '}
                     <b>
-                        {format(new Date(playlist.date_created), 'yyyy-MM-dd')}
+                        {formatDistanceToNow(new Date(playlist.date_created), {
+                            addSuffix: true,
+                        })}
                     </b>
                 </small>
             </div>
