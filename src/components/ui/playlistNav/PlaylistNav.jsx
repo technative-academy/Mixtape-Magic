@@ -3,8 +3,7 @@ import styles from './playlistnav.module.css'
 import { NavLink } from 'react-router-dom'
 
 function PlaylistNav() {
-    // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
-    const isLoggedIn = true
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
     const links = []
 
     if (isLoggedIn) {

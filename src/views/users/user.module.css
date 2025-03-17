@@ -18,8 +18,9 @@
 
         img {
             box-shadow: var(--clr-box-shadow) -10px 20px 10px;
-            width: 3em;
-            border-radius: var(--border-radius);
+            width: 3.5em;
+            border-radius: 50%;
+            border: solid 3px var(--clr-light);
             aspect-ratio: 1/1;
         }
     }
