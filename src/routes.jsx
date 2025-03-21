@@ -30,12 +30,12 @@ const routes = [
             },
             {
                 path: 'playlist/:id/edit/',
-                element: (
-                    <ProtectedRoute>
-                        <Edit />
-                    </ProtectedRoute>
-                ),
-                // element: <ProtectedRoute element={<Edit />} />,
+                // element: (
+                //     <ProtectedRoute>
+                //         <Edit />
+                //     </ProtectedRoute>
+                // ),
+                element: <ProtectedRoute element={<Edit />} />,
                 // element: <Edit />,
             },
 
