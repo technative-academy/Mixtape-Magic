@@ -65,7 +65,7 @@ const Playlist = () => {
                 <button>Edit Playlist</button>
             </Link>
         </div>
-
+    )
     const songCount = playlist.songs.length
 
     return (
