@@ -35,27 +35,6 @@ export const createPlaylist = createAsyncThunk(
     }
 );
 
-export const createPlaylist = createAsyncThunk(
-    'playlist/createPlaylist',
-    async (playlistData, { rejectWithValue }) => {
-        try {
-            const response = await fetch(`${API_URL}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(playlistData),
-            });
-
-            if (!response.ok) throw new Error('Failed to create playlist');
-
-            return await response.json(); 
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
-    }
-);
-
 const singlePlaylistSlice = createSlice({
     name: 'playlist',
     initialState: {
