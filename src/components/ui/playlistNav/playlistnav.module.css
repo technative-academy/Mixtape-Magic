@@ -5,7 +5,7 @@
     margin-bottom: 1em;
     color: var(--clr-light);
 
-    a:not(:nth-of-type(4)) {
+    :where(a:not(:nth-of-type(4))) {
         color: var(--clr-light);
         position: relative;
         font-weight: 500;
@@ -44,7 +44,7 @@
         text-transform: uppercase;
     }
 
-    .active-link {
+    .active {
         color: var(--clr-accent);
 
         &::after {

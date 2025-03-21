@@ -2,7 +2,7 @@
     width: calc(100% - 4rem);
     margin-inline: auto;
     min-height: 100vh;
+    gap: 2em;
     flex-direction: column;
     display: flex;
-    /* position: relative; */
 }
