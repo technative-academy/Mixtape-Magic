@@ -21,7 +21,6 @@ function MyPlaylists() {
             <PlaylistNav />
             <section className={styles.main}>
                 <h1>My playlists</h1>
-                <Search />
                 <CardComponentList
                     playlists={myPlaylists}
                     status={status}
