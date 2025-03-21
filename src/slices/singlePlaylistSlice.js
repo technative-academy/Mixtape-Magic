@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import apiService from '../services/apiService'
 
 // API env
-const API_URL = `${import.meta.env.VITE_API_URL}/api/playlists`
+const API_URL = `${import.meta.env.VITE_API_URL}/api/my-playlists`
 
 export const fetchPlaylistById = createAsyncThunk(
     'playlist/fetchPlaylistById',
@@ -13,27 +13,6 @@ export const fetchPlaylistById = createAsyncThunk(
         return response
     }
 )
-
-export const createPlaylist = createAsyncThunk(
-    'playlist/createPlaylist',
-    async (playlistData, { rejectWithValue }) => {
-        try {
-            const response = await fetch(`${API_URL}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(playlistData),
-            });
-
-            if (!response.ok) throw new Error('Failed to create playlist');
-
-            return await response.json(); 
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
-    }
-);
 
 const singlePlaylistSlice = createSlice({
     name: 'playlist',

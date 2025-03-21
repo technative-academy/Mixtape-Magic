@@ -20,6 +20,17 @@ export const updatePlaylist = createAsyncThunk(
     }
 )
 
+export const createPlaylist = createAsyncThunk(
+    'playlist/createPlaylist',
+    async ( updatedData ) => {
+        const response = await apiService(`api/my-playlists/`, {
+            method: 'POST',
+            body: JSON.stringify(updatedData),
+        })
+        return response
+    }
+)
+
 const myPlaylistSlice = createSlice({
     name: 'myPlaylists',
     initialState: {
@@ -49,6 +60,17 @@ const myPlaylistSlice = createSlice({
                 state.item = action.payload
             })
             .addCase(updatePlaylist.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.payload
+            })
+            .addCase(createPlaylist.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(createPlaylist.fulfilled, (state, action) => {
+                state.status = 'succeeded'
+                state.item = action.payload
+            })
+            .addCase(createPlaylist.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.payload
             })
