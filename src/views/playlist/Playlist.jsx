@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
 import LoadingComponent from '../../components/ui/loadingComponent/LoadingComponent'
 import styles from '../../components/ui/main/main.module.css'
@@ -18,7 +19,6 @@ const Playlist = () => {
     } = useSelector((state) => state.singlePlaylist)
     const { id } = useParams()
     const dispatch = useDispatch()
-
     useEffect(() => {
         if (id) {
             dispatch(fetchPlaylistById(id))
@@ -31,6 +31,7 @@ const Playlist = () => {
     if (status === 'loading') return <LoadingComponent />
     if (status === 'failed') return <p>Error: {error}</p>
     if (!playlist) return <p>No playlist selected.</p>
+
     const songCount = playlist.songs.length
 
     return (
@@ -80,6 +81,7 @@ const Playlist = () => {
                 </div>
             </section>
         </main>
+
     )
 }
 
