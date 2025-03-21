@@ -17,13 +17,42 @@ function CardComponentList() {
         dispatch(fetchPlaylists())
     }, [dispatch])
 
+    useEffect(() => {
+        const lowercasedSearchTerm = searchTerm.toLowerCase()
+        const filtered = playlists.filter(
+            (playlist) =>
+                playlist.name.toLowerCase().includes(lowercasedSearchTerm) ||
+                (playlist.description &&
+                    playlist.description
+                        .toLowerCase()
+                        .includes(lowercasedSearchTerm)) ||
+                (playlist.tags &&
+                    playlist.tags.some((tag) =>
+                        tag.toLowerCase().includes(lowercasedSearchTerm)
+                    ))
+        )
+        setFilteredPlaylists(filtered)
+    }, [searchTerm, playlists])
+
     return (
-        <div className={styles.playlists}>
-            {status === 'loading' && <LoadingComponent />}
-            {status === 'failed' && <div>{error}</div>}
-            {playlists.map((playlist) => (
-                <CardComponent playlist={playlist} />
-            ))}
+        <div>
+            <input
+                type="text"
+                placeholder="Search playlists..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className={styles.searchInput}
+            />
+            <div className={styles.playlists}>
+                {status === 'loading' && <LoadingComponent />}
+                {status === 'failed' && <div>{error}</div>}
+                {filteredPlaylists.length === 0 && status === 'succeeded' && (
+                    <div>No playlists found</div>
+                )}
+                {filteredPlaylists.map((playlist) => (
+                    <CardComponent key={playlist.id} playlist={playlist} />
+                ))}
+            </div>
         </div>
     )
 }
