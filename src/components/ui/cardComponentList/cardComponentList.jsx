@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPlaylists } from '../../../slices/playlistSlice'
 import styles from '../cardComponentList/cardComponentList.module.css'
+import Search from '../search/Search'
 
 function CardComponentList() {
     const dispatch = useDispatch()
     const playlists = useSelector((state) => state.playlists.items)
     const status = useSelector((state) => state.playlists.status)
     const error = useSelector((state) => state.playlists.error)
-    const [searchTerm, setSearchTerm] = useState('')
     const [filteredPlaylists, setFilteredPlaylists] = useState([])
 
     useEffect(() => {
@@ -18,30 +18,14 @@ function CardComponentList() {
     }, [dispatch])
 
     useEffect(() => {
-        const lowercasedSearchTerm = searchTerm.toLowerCase()
-        const filtered = playlists.filter(
-            (playlist) =>
-                playlist.name.toLowerCase().includes(lowercasedSearchTerm) ||
-                (playlist.description &&
-                    playlist.description
-                        .toLowerCase()
-                        .includes(lowercasedSearchTerm)) ||
-                (playlist.tags &&
-                    playlist.tags.some((tag) =>
-                        tag.toLowerCase().includes(lowercasedSearchTerm)
-                    ))
-        )
-        setFilteredPlaylists(filtered)
-    }, [searchTerm, playlists])
+        setFilteredPlaylists(playlists)
+    }, [playlists])
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Search playlists..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className={styles.searchInput}
+            <Search
+                playlists={playlists}
+                onSearch={(filtered) => setFilteredPlaylists(filtered)}
             />
             <div className={styles.playlists}>
                 {status === 'loading' && <LoadingComponent />}

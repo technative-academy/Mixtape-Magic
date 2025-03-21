@@ -9,7 +9,6 @@ function Main() {
             <PlaylistNav />
             <section className={styles.main}>
                 <h1>Dashboard</h1>
-                <Search />
                 <CardComponentList />
             </section>
         </main>
