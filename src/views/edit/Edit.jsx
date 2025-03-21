@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
-import styles from '../../components/ui/main/main.module.css'
-import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
 import formStyles from '../../components/ui/form/form.module.css'
 import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
 import { updatePlaylist } from '../../slices/myPlaylistSlice'
@@ -33,7 +31,7 @@ const Edit = () => {
             setFormData({
                 name: playlist.name || '',
                 description: playlist.description || '',
-                coverImage: playlist.coverImage || '',
+                coverImage: playlist.image_url || '',
                 songs: playlist.songs || [],
             })
         }
@@ -64,6 +62,7 @@ const Edit = () => {
                 <input
                     type="text"
                     name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                 />
@@ -71,7 +70,12 @@ const Edit = () => {
 
             <div className={formStyles.form__group}>
                 <label>Description</label>
-                <textarea name="description" onChange={handleChange} required />
+                <textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    required
+                />
             </div>
 
             <div className={formStyles.form__group}>
