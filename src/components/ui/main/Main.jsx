@@ -20,6 +20,7 @@ function Main() {
             <PlaylistNav />
             <section className={styles.main}>
                 <h1>Dashboard</h1>
+
                 <CardComponentList
                     playlists={playlists}
                     status={status}
