@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
-import {
-    fetchPlaylistById,
-    updatePlaylist,
-} from '../../slices/singlePlaylistSlice'
 import styles from '../../components/ui/main/main.module.css'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
 import formStyles from '../../components/ui/form/form.module.css'
+import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
+import { updatePlaylist } from '../../slices/myPlaylistSlice'
 
 const Edit = () => {
     const {
