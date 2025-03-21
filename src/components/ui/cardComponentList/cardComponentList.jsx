@@ -10,6 +10,8 @@ function CardComponentList() {
     const playlists = useSelector((state) => state.playlists.items)
     const status = useSelector((state) => state.playlists.status)
     const error = useSelector((state) => state.playlists.error)
+    const [searchTerm, setSearchTerm] = useState('')
+    const [filteredPlaylists, setFilteredPlaylists] = useState([])
 
     useEffect(() => {
         dispatch(fetchPlaylists())
