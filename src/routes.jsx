@@ -10,6 +10,8 @@ import Edit from './views/edit/Edit'
 import Users from './views/users/Users'
 import ProtectedRoute from './components/ui/protected-route/ProtectedRoute'
 
+const isAuthenticated = localStorage.getItem('token'); 
+
 const routes = [
     {
         path: '/',
@@ -35,8 +37,8 @@ const routes = [
                 //         <Edit />
                 //     </ProtectedRoute>
                 // ),
-                // element: <ProtectedRoute element={<Edit />} />,
-                element: <Edit />,
+                element: <ProtectedRoute element={<Edit />} />,
+                // element: <Edit />,
             },
 
             { path: 'users', element: <Users /> },

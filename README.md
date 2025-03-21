@@ -1,4 +1,4 @@
-# 🎵 me to Mixtape Magic!
+# 🎵  Mixtape Magic!
 
 Mixtape Magic is a web application designed to manage and showcase user-created playlists. The goal of this project is to build a component-driven UI with authentication and database integration, while using modern web development practices.
 
