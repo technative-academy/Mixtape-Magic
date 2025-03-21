@@ -31,7 +31,6 @@ const Playlist = () => {
     if (status === 'loading') return <LoadingComponent />
     if (status === 'failed') return <p>Error: {error}</p>
     if (!playlist) return <p>No playlist selected.</p>
-
     const songCount = playlist.songs.length
 
     return (
