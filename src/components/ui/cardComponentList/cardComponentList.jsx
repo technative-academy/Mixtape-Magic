@@ -6,11 +6,9 @@ import { fetchPlaylists } from '../../../slices/playlistSlice'
 import styles from '../cardComponentList/cardComponentList.module.css'
 import Search from '../search/Search'
 
-function CardComponentList() {
+function CardComponentList(props) {
+    const { playlists, status, error } = props
     const dispatch = useDispatch()
-    const playlists = useSelector((state) => state.playlists.items)
-    const status = useSelector((state) => state.playlists.status)
-    const error = useSelector((state) => state.playlists.error)
     const [filteredPlaylists, setFilteredPlaylists] = useState([])
 
     useEffect(() => {
