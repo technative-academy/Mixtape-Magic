@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 // API env
 const API_URL = `${import.meta.env.VITE_API_URL}/api/playlists`
-
 export const fetchPlaylists = createAsyncThunk(
     'playlists/fetchPlaylists',
     async (_, { rejectWithValue }) => {

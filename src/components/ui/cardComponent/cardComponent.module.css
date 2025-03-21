@@ -1,5 +1,4 @@
 .card {
-    --clr-box-shadow: rgba(0, 0, 0, 0.151);
     --clr-ouline-color: rgba(255, 255, 0, 0.37);
 
     background-color: var(--clr-grey);
@@ -14,7 +13,7 @@
 
     &:hover,
     &:focus-within {
-        box-shadow: var(--clr-box-shadow) -10px 20px 10px;
+        box-shadow: var(--box-shadow);
         outline: 1px solid var(--clr-ouline-color);
 
         .card__play {

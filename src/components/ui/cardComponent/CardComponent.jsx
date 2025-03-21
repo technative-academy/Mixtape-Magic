@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './cardComponent.module.css'
-import logo from '../../../assets/img/thumbnail.jpg'
+import thumbnail from '../../../assets/img/thumbnail.jpg'
 import playLogo from '../../../assets/img/play-button.png'
+import { formatDistanceToNow } from 'date-fns'
 
 function CardComponent(props) {
     const { playlist } = props
+    console.log(playlist)
     return (
         <Link className={styles.card} to={`/playlist/${playlist.id}/`}>
             <img
-                src={logo} // add playList.coverImage when possible
-                alt="The logo of the company"
+                src={thumbnail} // add playList.coverImage when possible
+                alt="The thumbnail of the playlist"
                 className={styles.card__img}
             />
             <div className={styles.card__details}>
@@ -20,11 +22,19 @@ function CardComponent(props) {
                 <small className={styles.card__tag}>rock</small>
 
                 <p className={styles.card__user}>
-                    User <b>{playlist.owner}</b>
+                    User <b>{playlist.owner.username}</b>
+                </p>
+                <p className={styles.card__user}>
+                    Track Count <b>{playlist.song_count}</b>
                 </p>
 
-                <small className={styles.card__time}>
-                    Made <b>{playlist.dateCreated}</b>
+                <small className={styles.card__user}>
+                    Date Created{' '}
+                    <b>
+                        {formatDistanceToNow(new Date(playlist.date_created), {
+                            addSuffix: true,
+                        })}
+                    </b>
                 </small>
             </div>
 

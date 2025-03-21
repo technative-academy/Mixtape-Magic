@@ -6,6 +6,7 @@ const API_URL = `${import.meta.env.VITE_API_URL}/api/playlists`
 export const fetchPlaylistById = createAsyncThunk(
     'playlist/fetchPlaylistById',
     async (playlistId, { rejectWithValue }) => {
+
         try {
             const response = await fetch(`${API_URL}/${playlistId}`)
             if (!response.ok) throw new Error('Failed to fetch playlist')
@@ -41,6 +42,7 @@ const singlePlaylistSlice = createSlice({
                 state.status = 'failed'
                 state.error = action.payload
             })
+
             .addCase(updatePlaylist.pending, (state) => {
                 state.status = 'loading'
             })

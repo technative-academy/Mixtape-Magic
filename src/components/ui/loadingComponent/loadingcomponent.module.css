@@ -1,0 +1,73 @@
+.loading {
+    --circle-width: 4em;
+    width: var(--circle-width);
+    background-color: var(--clr-grey);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+
+    position: relative;
+
+    &::after {
+        --spinner-width: 10px;
+        z-index: 2;
+        content: '';
+        position: absolute;
+        background-color: var(--clr-accent);
+        width: var(--spinner-width);
+        height: 50%;
+        left: calc(50% - var(--spinner-width) / 2);
+        transform-origin: bottom center;
+        animation: rotatespinner 1s linear 250ms infinite forwards;
+    }
+
+    &::before {
+        --inner-circle-width: 3em;
+        content: '';
+        z-index: 3;
+        position: absolute;
+        background-color: var(--clr-dark-100);
+        width: var(--inner-circle-width);
+        left: calc(50% - var(--inner-circle-width) / 2);
+        top: calc(50% - var(--inner-circle-width) / 2);
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+    }
+}
+
+@keyframes rotatespinner {
+    0% {
+        rotate: 0deg;
+    }
+
+    12.5% {
+        rotate: 45deg;
+    }
+
+    25% {
+        rotate: 90deg;
+    }
+
+    37.5% {
+        rotate: 135deg;
+    }
+
+    50% {
+        rotate: 180deg;
+    }
+
+    62.5% {
+        rotate: 225deg;
+    }
+
+    75% {
+        rotate: 270deg;
+    }
+
+    87.5% {
+        rotate: 315deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}

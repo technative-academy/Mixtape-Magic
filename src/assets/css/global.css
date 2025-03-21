@@ -108,6 +108,9 @@ textarea:not([rows]) {
     --clr-accent: hsl(54, 84%, 51%);
 
     --border-radius: 10px;
+
+    --clr-box-shadow: rgba(0, 0, 0, 0.151);
+    --box-shadow: var(--clr-box-shadow) -10px 20px 10px;
 }
 
 body {

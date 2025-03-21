@@ -1,0 +1,27 @@
+.users {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+
+    .users__card {
+        color: var(--clr-light);
+        padding: 0.5em;
+        border-radius: var(--border-radius);
+        background-color: var(--clr-grey);
+        font-weight: 600;
+        box-shadow: var(--box-shadow);
+
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        font-size: 1.25rem;
+
+        img {
+            box-shadow: var(--box-shadow);
+            width: 3.5em;
+            border-radius: 50%;
+            border: solid 3px var(--clr-light);
+            aspect-ratio: 1/1;
+        }
+    }
+}
