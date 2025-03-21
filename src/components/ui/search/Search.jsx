@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './search.module.css'
 import search from '../../../assets/img/search.png'
 
