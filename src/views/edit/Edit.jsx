@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
+import formStyles from '../../components/ui/form/form.module.css'
 import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
 import { updatePlaylist } from '../../slices/myPlaylistSlice'
 
@@ -30,7 +31,7 @@ const Edit = () => {
             setFormData({
                 name: playlist.name || '',
                 description: playlist.description || '',
-                coverImage: playlist.coverImage || '',
+                coverImage: playlist.image_url || '',
                 songs: playlist.songs || [],
             })
         }
@@ -53,40 +54,42 @@ const Edit = () => {
     if (status === 'failed') return <p>Error: {error}</p>
 
     return (
-        <div>
-            <h1>Edit Playlist</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Description:
-                    <textarea
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Cover Image URL:
-                    <input
-                        type="text"
-                        name="coverImage"
-                        value={formData.coverImage}
-                        onChange={handleChange}
-                    />
-                </label>
-                <button type="submit">Save Changes</button>
-            </form>
-        </div>
+        <form className={formStyles.form} onSubmit={handleSubmit}>
+            <legend className={formStyles.form__legend}>Edit Playlist</legend>
+
+            <div className={formStyles.form__group}>
+                <label>Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div className={formStyles.form__group}>
+                <label>Description</label>
+                <textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div className={formStyles.form__group}>
+                <label>Cover Image URL</label>
+                <input
+                    type="text"
+                    name="coverImage"
+                    value={formData.coverImage}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <button type="submit">Save Changes</button>
+        </form>
     )
 }
 

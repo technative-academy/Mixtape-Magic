@@ -1,5 +1,4 @@
 import styles from '../../components/ui/main/main.module.css'
-import Search from '../../components/ui/search/Search'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
 import CardComponentList from '../../components/ui/cardComponentList/cardComponentList'
 import { useEffect } from 'react'

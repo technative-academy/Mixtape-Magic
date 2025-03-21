@@ -71,4 +71,15 @@
             width: 100%;
         }
     }
+
+    .playlist__edit {
+        background-color: var(--clr-accent);
+        border-radius: var(--border-radius);
+        color: var(--clr-dark);
+        padding: 0.5em 0.375em;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        margin-top: 2em;
+    }
 }

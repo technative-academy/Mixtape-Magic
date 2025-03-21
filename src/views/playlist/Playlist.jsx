@@ -74,13 +74,16 @@ const Playlist = () => {
                             </div>
                         ))}
                     </section>
-                    <Link to={`/playlist/${id}/edit/`}>
-                        <button>Edit Playlist</button>
+
+                    <Link
+                        className={playlistStyles.playlist__edit}
+                        to={`/playlist/${id}/edit/`}
+                    >
+                        Edit Playlist
                     </Link>
                 </div>
             </section>
         </main>
-
     )
 }
 

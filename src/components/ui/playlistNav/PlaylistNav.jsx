@@ -9,18 +9,27 @@ function PlaylistNav() {
     if (isLoggedIn) {
         links.push({ label: 'My Playlists', url: '/myplaylists/' })
         links.push({ label: 'Users', url: '/users/' })
-        links.push({ label: '+ New Playlist', url: '/playlist/add/' })
+        links.push({
+            label: '+ New Playlist',
+            url: '/playlist/add/',
+            class: 'button',
+        })
     }
 
     return (
         <div className={styles.playlistNav}>
-            <NavLink to="/">All Playlists</NavLink>
+            <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? styles.active : 'no')}
+            >
+                All Playlists
+            </NavLink>
 
             {links.map((link) => (
                 <NavLink
                     to={link.url}
                     className={({ isActive }) =>
-                        isActive ? 'active-link' : 'no'
+                        isActive ? styles.active : ''
                     }
                 >
                     {link.label}
