@@ -1,17 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import apiService from '../services/apiService'
 
-// API env
-const API_URL = `${import.meta.env.VITE_API_URL}/api/playlists`
 export const fetchPlaylists = createAsyncThunk(
     'playlists/fetchPlaylists',
-    async (_, { rejectWithValue }) => {
-        try {
-            const response = await fetch(API_URL)
-            if (!response.ok) throw new Error('Failed to fetch playlists')
-            return await response.json()
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
+    async () => {
+        const response = await apiService('api/playlists', { method: 'GET' })
+        return response
     }
 )
 
