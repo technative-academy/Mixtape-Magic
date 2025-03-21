@@ -9,7 +9,6 @@ import LoadingComponent from '../../components/ui/loadingComponent/LoadingCompon
 import styles from '../../components/ui/main/main.module.css'
 import thumbnail from '../../assets/img/thumbnail.jpg'
 import playlistStyles from './playlist.module.css'
-import { Link } from 'react-router-dom'
 
 const Playlist = () => {
     const {
