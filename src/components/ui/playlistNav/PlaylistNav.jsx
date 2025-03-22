@@ -10,7 +10,7 @@ function PlaylistNav() {
         links.push({ label: 'My Playlists', url: '/myplaylists/' })
         links.push({ label: 'Users', url: '/users/' })
         links.push({
-            label: '+ New Playlist',
+            label: 'New Playlist',
             url: '/playlist/add/',
             class: 'button',
         })
@@ -22,7 +22,7 @@ function PlaylistNav() {
                 to="/"
                 className={({ isActive }) => (isActive ? styles.active : 'no')}
             >
-                All Playlists
+                Home
             </NavLink>
 
             {links.map((link) => (
