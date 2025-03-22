@@ -9,6 +9,7 @@ import LoadingComponent from '../../components/ui/loadingComponent/LoadingCompon
 import styles from '../../components/ui/main/main.module.css'
 import thumbnail from '../../assets/img/thumbnail.jpg'
 import playlistStyles from './playlist.module.css'
+import audio from '../../assets/audio/sound.mp3'
 
 const Playlist = () => {
     const {
@@ -67,7 +68,7 @@ const Playlist = () => {
                                 </div>
                                 <audio controls>
                                     <source
-                                        src={`${import.meta.env.VITE_API_URL}/${song.file}`}
+                                        src={audio} // add this later on when we get real tracks {`${import.meta.env.VITE_API_URL}/${song.file}`}
                                         type="audio/mpeg"
                                     />
                                 </audio>
