@@ -65,21 +65,32 @@ const Playlist = () => {
                         >
                             Edit Playlist
                         </Link>
-                        {playlist.songs.map((song) => (
-                            <div
-                                key={song.ID}
-                                className={playlistStyles.playlist__song}
-                            >
-                                <p>{song.title}</p>
-                                <p>{song.artist}</p>
-                                <audio controls>
-                                    <source
-                                        src={audio} // add this later on when we get real tracks {`${import.meta.env.VITE_API_URL}/${song.file}`}
-                                        type="audio/mpeg"
-                                    />
-                                </audio>
-                            </div>
-                        ))}
+                        {playlist.songs.length > 0 ? (
+                            <>
+                                {' '}
+                                {playlist.songs.map((song) => (
+                                    <div
+                                        key={song.ID}
+                                        className={
+                                            playlistStyles.playlist__song
+                                        }
+                                    >
+                                        <p>{song.title}</p>
+                                        <p>{song.artist}</p>
+                                        <audio controls>
+                                            <source
+                                                src={audio} // add this later on when we get real tracks {`${import.meta.env.VITE_API_URL}/${song.file}`}
+                                                type="audio/mpeg"
+                                            />
+                                        </audio>
+                                    </div>
+                                ))}
+                            </>
+                        ) : (
+                            <p className={playlistStyles.empty}>
+                                Empty playlist (T⌓T)
+                            </p>
+                        )}
                     </section>
                     <section className={playlistStyles.playlist__thumbnail}>
                         <img
@@ -95,7 +106,9 @@ const Playlist = () => {
                             jazz
                         </p>
 
-                        <div className="">
+                        <div
+                            className={playlistStyles.playlist__thumbnail__desc}
+                        >
                             <p>Description</p>
                             <p>{playlist.description}</p>
                         </div>

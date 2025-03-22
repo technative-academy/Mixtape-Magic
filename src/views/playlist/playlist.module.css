@@ -90,5 +90,28 @@
             margin-right: 0.5em;
             color: var(--clr-accent);
         }
+
+        .playlist__thumbnail__desc {
+            border-radius: var(--border-radius);
+            background-color: var(--clr-grey);
+            padding: 0.05em 1em 0.5em;
+            margin-top: 1em;
+
+            p {
+                font-size: 0.95rem;
+            }
+
+            p:first-of-type {
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+        }
     }
+}
+
+.empty {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    opacity: 0.5;
 }
