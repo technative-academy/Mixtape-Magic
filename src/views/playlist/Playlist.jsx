@@ -10,6 +10,7 @@ import styles from '../../components/ui/main/main.module.css'
 import thumbnail from '../../assets/img/thumbnail.jpg'
 import playlistStyles from './playlist.module.css'
 import audio from '../../assets/audio/sound.mp3'
+import { formatDistanceToNow } from 'date-fns'
 
 const Playlist = () => {
     const {
@@ -32,40 +33,45 @@ const Playlist = () => {
     if (status === 'failed') return <p>Error: {error}</p>
     if (!playlist) return <p>No playlist selected.</p>
 
-    const songCount = playlist.songs.length
-
     return (
         <main>
             <PlaylistNav />
             <section className={styles.main}>
                 <div className={playlistStyles.playlist}>
-                    <section className={playlistStyles.playlist__details}>
-                        <img
-                            // src={`${import.meta.env.VITE_API_URL}/${playlist.coverImage}`} save this for when images work from the backend
-                            src={thumbnail}
-                            alt="Playlist Cover"
-                        />
-                        <div>
-                            <h1>{playlist.name}</h1>
-                            <small>tag</small>
-                            <small>rock</small>
-                            <p>{playlist.description}</p>
+                    <section className={playlistStyles.playlist__songs}>
+                        <h1>{playlist.name}</h1>
+                        <div className={playlistStyles.playlist__songs__info}>
                             <p>
-                                Songs <span>{songCount}</span>
+                                <b>{playlist.owner.username}</b>
+                            </p>
+                            •
+                            <p>
+                                <b>{playlist.song_count} </b>
+                                songs
+                            </p>
+                            •
+                            <p>
+                                {formatDistanceToNow(
+                                    new Date(playlist.date_created),
+                                    {
+                                        addSuffix: true,
+                                    }
+                                )}
                             </p>
                         </div>
-                    </section>
-                    <h2>Songs</h2>
-                    <section className={playlistStyles.playlist__songs}>
+                        <Link
+                            className={playlistStyles.playlist__edit}
+                            to={`/playlist/${id}/edit/`}
+                        >
+                            Edit Playlist
+                        </Link>
                         {playlist.songs.map((song) => (
                             <div
                                 key={song.ID}
                                 className={playlistStyles.playlist__song}
                             >
-                                <div>
-                                    <p>{song.name}</p>
-                                    <p>{song.artist}</p>
-                                </div>
+                                <p>{song.title}</p>
+                                <p>{song.artist}</p>
                                 <audio controls>
                                     <source
                                         src={audio} // add this later on when we get real tracks {`${import.meta.env.VITE_API_URL}/${song.file}`}
@@ -75,13 +81,25 @@ const Playlist = () => {
                             </div>
                         ))}
                     </section>
+                    <section className={playlistStyles.playlist__thumbnail}>
+                        <img
+                            // src={`${import.meta.env.VITE_API_URL}/${playlist.coverImage}`} save this for when images work from the backend
+                            src={thumbnail}
+                            className={playlistStyles.playlist__thumbnail__img}
+                            alt="Playlist Cover"
+                        />
+                        <p className={playlistStyles.playlist__thumbnail__tag}>
+                            rock
+                        </p>
+                        <p className={playlistStyles.playlist__thumbnail__tag}>
+                            jazz
+                        </p>
 
-                    <Link
-                        className={playlistStyles.playlist__edit}
-                        to={`/playlist/${id}/edit/`}
-                    >
-                        Edit Playlist
-                    </Link>
+                        <div className="">
+                            <p>Description</p>
+                            <p>{playlist.description}</p>
+                        </div>
+                    </section>
                 </div>
             </section>
         </main>
