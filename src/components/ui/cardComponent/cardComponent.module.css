@@ -79,25 +79,9 @@
         box-shadow: var(--box-shadow);
         outline: 1px solid var(--clr-ouline-color);
 
-        .card__title {
-            overflow: scroll;
-            text-overflow: unset;
-            animation: title-animate 15s linear 0.1s infinite forwards;
-        }
-
         .card__play {
             transition: transform 200ms ease-out;
             transform: translateY(0);
         }
-    }
-}
-
-@keyframes title-animate {
-    0% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(-100%);
     }
 }
