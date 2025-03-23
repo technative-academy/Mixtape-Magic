@@ -11,4 +11,23 @@
     font-size: 3rem;
     opacity: 0.5;
     color: var(--clr-light);
+.sortSearchContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.sortButton {
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    min-width: 150px;
+    height: 45px;
+}
+.sortButton:hover {
+    background-color: grey;
 }
