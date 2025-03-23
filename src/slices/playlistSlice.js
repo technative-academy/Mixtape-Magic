@@ -21,6 +21,7 @@ const playlistSlice = createSlice({
         builder
             .addCase(fetchPlaylists.pending, (state) => {
                 state.status = 'loading'
+                state.items = []
             })
             .addCase(fetchPlaylists.fulfilled, (state, action) => {
                 state.status = 'succeeded'

@@ -15,6 +15,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 
 const initialState = {
     isLoggedIn: authService.isLoggedIn(),
+    user: authService.getUser(),
     status: 'idle',
     error: null,
 }
@@ -27,8 +28,9 @@ const authSlice = createSlice({
             .addCase(login.pending, (state) => {
                 state.status = 'loading'
             })
-            .addCase(login.fulfilled, (state) => {
+            .addCase(login.fulfilled, (state, action) => {
                 state.status = 'succeeded'
+                state.user = action.payload
                 state.isLoggedIn = true
             })
             .addCase(login.rejected, (state, action) => {

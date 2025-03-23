@@ -25,6 +25,7 @@ const usersSlice = createSlice({
         builder
             .addCase(fetchUsers.pending, (state) => {
                 state.status = 'loading'
+                state.items = []
             })
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 state.status = 'succeeded'

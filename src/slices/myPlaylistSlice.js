@@ -22,11 +22,38 @@ export const updatePlaylist = createAsyncThunk(
 
 export const createPlaylist = createAsyncThunk(
     'playlist/createPlaylist',
-    async ( updatedData ) => {
+    async (updatedData) => {
         const response = await apiService(`api/my-playlists/`, {
             method: 'POST',
             body: JSON.stringify(updatedData),
         })
+        return response
+    }
+)
+
+export const addSong = createAsyncThunk(
+    'playlist/addSong',
+    async ({ playlistId, updatedData }) => {
+        const response = await apiService(
+            `api/my-playlists/${playlistId}/songs`,
+            {
+                method: 'POST',
+                body: JSON.stringify(updatedData),
+            }
+        )
+        return response
+    }
+)
+
+export const deleteSong = createAsyncThunk(
+    'playlist/deleteSong',
+    async ({ playlistId, songId }) => {
+        const response = await apiService(
+            `api/my-playlists/${playlistId}/songs/${songId}`,
+            {
+                method: 'DELETE',
+            }
+        )
         return response
     }
 )
@@ -43,6 +70,7 @@ const myPlaylistSlice = createSlice({
         builder
             .addCase(fetchMyPlaylists.pending, (state) => {
                 state.status = 'loading'
+                state.items = []
             })
             .addCase(fetchMyPlaylists.fulfilled, (state, action) => {
                 state.status = 'succeeded'
@@ -71,6 +99,27 @@ const myPlaylistSlice = createSlice({
                 state.item = action.payload
             })
             .addCase(createPlaylist.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.payload
+            })
+            .addCase(addSong.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(addSong.fulfilled, (state, action) => {
+                state.status = 'succeeded'
+                state.item = action.payload
+            })
+            .addCase(addSong.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.payload
+            })
+            .addCase(deleteSong.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(deleteSong.fulfilled, (state) => {
+                state.status = 'succeeded'
+            })
+            .addCase(deleteSong.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.payload
             })

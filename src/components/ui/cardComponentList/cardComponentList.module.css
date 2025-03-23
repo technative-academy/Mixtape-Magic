@@ -11,6 +11,7 @@
     font-size: 3rem;
     opacity: 0.5;
     color: var(--clr-light);
+}
 .sortSearchContainer {
     display: flex;
     align-items: center;
