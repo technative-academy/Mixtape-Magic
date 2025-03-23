@@ -28,7 +28,7 @@ const AddPlaylist = () => {
 
     return (
         <main className={styles.main}>
-            <h1 className="text-xl font-bold mb-4">Create a New Playlist</h1>
+            <h1 className="text-xl font-bold mb-4">Add New Playlist</h1>
             {error && <p className="text-red-500">{error}</p>}
             <form className={formstyles.form} onSubmit={handleSubmit}>
                 <div className={formstyles.form__group}>

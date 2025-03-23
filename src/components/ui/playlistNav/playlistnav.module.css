@@ -14,7 +14,8 @@
         padding-right: 5em;
         border-radius: 5px;
 
-        &:hover {
+        &:hover,
+        &:focus-within {
             background-color: hsla(228, 5%, 21%, 0.493);
             transition: background-color 150ms ease-in-out;
         }

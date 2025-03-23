@@ -1,6 +1,6 @@
 .nav {
     display: flex;
-    gap: 2em;
+    gap: 1em;
     font-weight: 700;
     padding-block: 2em;
     align-items: center;
@@ -12,65 +12,30 @@
     .nav__link {
         position: relative;
         color: var(--clr-light);
-        transition: color 275ms ease-in-out;
+        padding: 0.5em;
+        border-radius: calc(var(--border-radius) / 2);
 
-        &:hover {
-            color: var(--clr-accent);
-            transition: color 275ms ease-in-out;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            border-radius: var(--border-radius);
-            background-color: var(--clr-accent);
-            transition: width 275ms ease-in-out;
-        }
-
-        &:hover::after {
-            content: '';
-            width: 100%;
-            transition: width 275ms ease-in-out;
+        &:hover,
+        &:focus-within {
+            background-color: hsla(228, 5%, 21%, 0.493);
+            transition: background-color 150ms ease-in-out;
         }
 
         &:nth-of-type(2) {
             margin-left: auto;
         }
+
+        &:nth-of-type(3) {
+            background-color: var(--clr-accent);
+            color: var(--clr-dark);
+        }
     }
 
     .nav__logout {
         margin-left: auto;
-        appearance: none;
-        color: var(--clr-light);
-        transition: color 275ms ease-in-out;
-        background: none;
-        border: 0;
-
-        &:hover {
-            color: var(--clr-accent);
-            transition: color 275ms ease-in-out;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            border-radius: var(--border-radius);
-            background-color: var(--clr-accent);
-            transition: width 275ms ease-in-out;
-        }
-
-        &:hover::after {
-            content: '';
-            width: 100%;
-            transition: width 275ms ease-in-out;
-        }
+        color: var(--clr-dark);
+        width: max-content;
+        padding: 0.5em;
+        border-radius: calc(var(--border-radius) / 2);
     }
 }

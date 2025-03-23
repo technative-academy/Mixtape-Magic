@@ -15,26 +15,26 @@ function CardComponent(props) {
                 className={styles.card__img}
             />
             <div className={styles.card__details}>
-                <p className={styles.card__title}>{playlist.name}</p>
+                <h2 className={styles.card__title}>{playlist.name}</h2>
 
                 <small className={styles.card__tag}>tag</small>
                 <small className={styles.card__tag}>rock</small>
 
                 <p className={styles.card__user}>
-                    User <b>{playlist.owner.username}</b>
+                    by <b>{playlist.owner.username}</b>
                 </p>
                 <p className={styles.card__user}>
-                    Track Count <b>{playlist.song_count}</b>
+                    songs <b>{playlist.song_count}</b>
                 </p>
 
-                <small className={styles.card__user}>
-                    Date Created{' '}
+                <p className={styles.card__user}>
+                    Created{' '}
                     <b>
                         {formatDistanceToNow(new Date(playlist.date_created), {
                             addSuffix: true,
                         })}
                     </b>
-                </small>
+                </p>
             </div>
 
             <button className={styles.card__play}>
