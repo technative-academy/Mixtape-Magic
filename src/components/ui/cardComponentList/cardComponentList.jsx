@@ -10,7 +10,7 @@ function CardComponentList(props) {
     const { playlists, status, error } = props
     const dispatch = useDispatch()
     const [filteredPlaylists, setFilteredPlaylists] = useState([])
-    const [sortOption, setSortOption] = useState('name')
+    const [sortOption, setSortOption] = useState('none')
 
     useEffect(() => {
         dispatch(fetchPlaylists())
@@ -21,30 +21,40 @@ function CardComponentList(props) {
     }, [playlists])
 
     const sortPlaylists = (option) => {
-        let sortedPlaylists
+        let sortedPlaylists = [...filteredPlaylists]
         if (option === 'name') {
-            sortedPlaylists = [...filteredPlaylists].sort((a, b) =>
-                a.name.localeCompare(b.name)
+            sortedPlaylists.sort((a, b) => a.name.localeCompare(b.name))
+        } else if (option === 'date') {
+            sortedPlaylists.sort(
+                (a, b) => new Date(b.date_created) - new Date(a.date_created)
             )
-            setFilteredPlaylists(sortedPlaylists)
         }
+        setFilteredPlaylists(sortedPlaylists)
     }
 
-    const handleSortChange = () => {
-        setSortOption('name')
-        sortPlaylists('name')
+    const handleSortChange = (event) => {
+        const option = event.target.value
+        setSortOption(option)
+        if (option === 'none') {
+            setFilteredPlaylists(playlists)
+        } else {
+            sortPlaylists(option)
+        }
     }
 
     return (
         <div>
             <div className={styles.sortSearchContainer}>
                 <div>
-                    <button
-                        onClick={handleSortChange}
-                        className={styles.sortButton}
+                    <select
+                        onChange={handleSortChange}
+                        value={sortOption}
+                        className={styles.sortSelect}
                     >
-                        Sort by Name
-                    </button>
+                        <option value="none">No Sort</option>
+                        <option value="name">Sort by Name</option>
+                        <option value="date">Sort by Date</option>
+                    </select>
                 </div>
                 <Search
                     playlists={playlists}
