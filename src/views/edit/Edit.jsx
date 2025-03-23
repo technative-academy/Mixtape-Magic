@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import formStyles from '../../components/ui/form/form.module.css'
 import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
 import { updatePlaylist } from '../../slices/myPlaylistSlice'
+import styles from '../../components/ui/main/main.module.css'
 
 const Edit = () => {
     const {
@@ -54,42 +55,42 @@ const Edit = () => {
     if (status === 'failed') return <p>Error: {error}</p>
 
     return (
-        <form className={formStyles.form} onSubmit={handleSubmit}>
-            <legend className={formStyles.form__legend}>Edit Playlist</legend>
-
-            <div className={formStyles.form__group}>
-                <label>Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-
-            <div className={formStyles.form__group}>
-                <label>Description</label>
-                <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-
-            <div className={formStyles.form__group}>
-                <label>Cover Image URL</label>
-                <input
-                    type="text"
-                    name="coverImage"
-                    value={formData.coverImage}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <button type="submit">Save Changes</button>
-        </form>
+        <main className={styles.main}>
+            <form className={formStyles.form} onSubmit={handleSubmit}>
+                <legend className={formStyles.form__legend}>
+                    Edit Playlist
+                </legend>
+                <div className={formStyles.form__group}>
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className={formStyles.form__group}>
+                    <label>Description</label>
+                    <textarea
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className={formStyles.form__group}>
+                    <label>Cover Image URL</label>
+                    <input
+                        type="text"
+                        name="coverImage"
+                        value={formData.coverImage}
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </main>
     )
 }
 

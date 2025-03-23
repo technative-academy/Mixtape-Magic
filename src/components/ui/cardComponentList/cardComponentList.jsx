@@ -55,7 +55,9 @@ function CardComponentList(props) {
                 {status === 'loading' && <LoadingComponent />}
                 {status === 'failed' && <div>{error}</div>}
                 {filteredPlaylists.length === 0 && status === 'succeeded' && (
-                    <div>No playlists found</div>
+                    <div className={styles.empty}>
+                        You dont have any playlists (T⌓T)
+                    </div>
                 )}
                 {filteredPlaylists.map((playlist) => (
                     <CardComponent key={playlist.id} playlist={playlist} />

@@ -1,60 +1,59 @@
 .form {
     width: 30%;
     margin: 0 auto 2em;
-    background-color: var(--clr-dark-100);
     padding: 2em;
     border-radius: var(--border-radius);
+    background-color: var(--clr-dark-100);
     color: var(--clr-light);
-    box-shadow: var(--box-shadow);
+}
 
-    .form__legend {
-        font-size: 2.5rem;
-        color: var(--clr-light);
-        font-weight: 700;
-    }
+.form__legend {
+    font-size: 2.5rem;
+    color: var(--clr-light);
+    font-weight: 700;
+}
 
-    .form__cta {
-        margin-block: 0.5em 2em;
-    }
+.form__cta {
+    margin-block: 0.5em 2em;
+    font-size: 0.9rem;
+}
 
-    .form__group {
-        margin-block: 1em;
+.form__group {
+    margin-block: 2em;
 
-        label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.25em;
-        }
-
-        input,
-        textarea {
-            border-radius: var(--border-radius);
-            border: 0;
-            width: 100%;
-            padding: 1em 0.75em;
-            background-color: var(--clr-dark);
-            color: var(--clr-light);
-        }
-    }
-
-    button {
-        width: 100%;
-        margin-top: 0.75em;
-        background-color: var(--clr-accent);
-        border: 0;
-        border-radius: var(--border-radius);
-        padding-block: 0.9em;
-        font-weight: 500;
-    }
-
-    small {
+    label {
         display: block;
-        text-align: center;
-        margin-top: 1.25em;
+        font-weight: 600;
+        margin-bottom: 0.25em;
+    }
 
-        a {
-            color: var(--clr-accent);
-            text-decoration: underline;
-        }
+    input,
+    textarea {
+        border-radius: var(--border-radius);
+        border: 0;
+        width: 100%;
+        padding: 1em 0.75em;
+        background-color: var(--clr-dark);
+        color: var(--clr-light);
+    }
+}
+
+button {
+    width: 100%;
+    background-color: var(--clr-accent);
+    border: 0;
+    border-radius: var(--border-radius);
+    padding-block: 0.9em;
+    font-weight: 600;
+}
+
+small {
+    display: block;
+    text-align: center;
+    margin-top: 1.25em;
+
+    a {
+        color: var(--clr-accent) !important;
+        text-decoration: underline;
     }
 }

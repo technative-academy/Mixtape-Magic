@@ -4,6 +4,13 @@
     grid-template-columns: repeat(auto-fill, minmax(475px, 1fr));
     gap: 1em;
 }
+
+.empty {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    opacity: 0.5;
+    color: var(--clr-light);
 .sortSearchContainer {
     display: flex;
     align-items: center;

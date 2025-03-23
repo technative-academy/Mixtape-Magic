@@ -3,63 +3,61 @@
 
     background-color: var(--clr-grey);
     color: var(--clr-light);
-    padding: 1em;
+    padding: 0.75em;
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: box-shadow 350ms ease-out;
 
     display: flex;
     gap: 1em;
-
-    &:hover,
-    &:focus-within {
-        box-shadow: var(--box-shadow);
-        outline: 1px solid var(--clr-ouline-color);
-
-        .card__play {
-            transition: transform 200ms ease-out;
-            transform: translateY(0);
-        }
-    }
+    position: relative;
 
     .card__img {
         border-radius: 10px;
         width: 40%;
+        flex-shrink: 0;
+    }
+
+    div {
+        flex-basis: 100%;
     }
 
     .card__title {
         font-weight: 700;
-        font-size: 1.75rem;
-        margin-block: 0 0.125em;
+        font-size: 1.7rem;
+        margin-block: 0em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis '..';
+        max-width: 320px;
+    }
+
+    .card__tag {
+        background-color: var(--clr-dark-100);
+        border-radius: calc(var(--border-radius) * 2);
+        text-transform: lowercase;
+        padding: 0.5em;
+        margin-right: 0.25em;
+        margin-top: 0.5em;
+        color: var(--clr-accent);
+        display: inline-block;
     }
 
     .card__user {
+        font-size: 0.95rem;
         b {
             color: var(--clr-accent);
         }
     }
 
-    .card__tag {
-        background-color: var(--clr-dark-100);
-        border-radius: var(--border-radius);
-        color: var(clr-accent);
-        text-transform: lowercase;
-        padding: 0.5em;
-        margin-right: 0.25em;
-        color: var(--clr-accent);
-    }
-
-    .card__time {
-        display: block;
-        margin-top: 3.5em;
-    }
-
     .card__play {
+        position: absolute;
         background-color: var(--clr-accent);
         border-radius: 50%;
         width: 3em;
         aspect-ratio: 1/1;
         border: 0;
+        right: 2.5%;
 
         display: grid;
         place-content: center;
@@ -73,6 +71,17 @@
             width: 1em;
             filter: invert(12%) sepia(6%) saturate(1104%) hue-rotate(194deg)
                 brightness(95%) contrast(91%);
+        }
+    }
+
+    &:hover,
+    &:focus-within {
+        box-shadow: var(--box-shadow);
+        outline: 1px solid var(--clr-ouline-color);
+
+        .card__play {
+            transition: transform 200ms ease-out;
+            transform: translateY(0);
         }
     }
 }
