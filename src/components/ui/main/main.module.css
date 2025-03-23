@@ -8,4 +8,10 @@
         margin-block: 0em 1em;
         font-size: 2.5rem;
     }
+
+    p {
+        color: var(--clr-light);
+        margin-block: 0em 1em;
+        font-size: 1.4rem;
+    }
 }

@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
+import { deleteSong } from '../../slices/myPlaylistSlice'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
@@ -24,6 +25,23 @@ const Playlist = () => {
         }
     }, [dispatch, id])
 
+    const { user } = useSelector((state) => state.auth)
+    const [userOwnedPlaylist, setUserOwnedPlaylist] = useState(false)
+
+    useEffect(() => {
+        if (user && playlist) {
+            setUserOwnedPlaylist(user.id === playlist.owner.id)
+        }
+    }, [user, playlist])
+
+    const handleDeleteSong = (songId) => {
+        dispatch(deleteSong({ songId, playlistId: id }))
+            .then(() => {
+                dispatch(fetchPlaylistById(id))
+            })
+            .catch((error) => console.error('Error deleting song:', error))
+    }
+
     if (!id) {
         return <div>No playlist selected.</div>
     }
@@ -40,8 +58,11 @@ const Playlist = () => {
                 <div className={playlistStyles.playlist}>
                     <section className={playlistStyles.playlist__details}>
                         <img
-                            // src={`${import.meta.env.VITE_API_URL}/${playlist.coverImage}`} save this for when images work from the backend
-                            src={thumbnail}
+                            src={
+                                playlist.image_url
+                                    ? playlist.image_url
+                                    : thumbnail
+                            }
                             alt="Playlist Cover"
                         />
                         <div>
@@ -62,25 +83,49 @@ const Playlist = () => {
                                 className={playlistStyles.playlist__song}
                             >
                                 <div>
-                                    <p>{song.name}</p>
+                                    <p>{song.title}</p>
                                     <p>{song.artist}</p>
                                 </div>
-                                <audio controls>
-                                    <source
-                                        src={`${import.meta.env.VITE_API_URL}/${song.file}`}
-                                        type="audio/mpeg"
-                                    />
-                                </audio>
+                                {song.song_url && (
+                                    <audio controls>
+                                        <source
+                                            src={song.song_url}
+                                            type="audio/mpeg"
+                                        />
+                                    </audio>
+                                )}
+                                {userOwnedPlaylist && (
+                                    <button
+                                        className={
+                                            playlistStyles.playlist__edit
+                                        }
+                                        onClick={() =>
+                                            handleDeleteSong(song.id)
+                                        }
+                                    >
+                                        Delete
+                                    </button>
+                                )}
                             </div>
                         ))}
                     </section>
+                    {userOwnedPlaylist && (
+                        <>
+                            <Link
+                                className={playlistStyles.playlist__edit}
+                                to={`/playlist/${id}/edit/`}
+                            >
+                                Edit Playlist
+                            </Link>
 
-                    <Link
-                        className={playlistStyles.playlist__edit}
-                        to={`/playlist/${id}/edit/`}
-                    >
-                        Edit Playlist
-                    </Link>
+                            <Link
+                                className={playlistStyles.playlist__edit}
+                                to={`/playlist/${id}/add-song/`}
+                            >
+                                Add song
+                            </Link>
+                        </>
+                    )}
                 </div>
             </section>
         </main>

@@ -11,7 +11,7 @@ function CardComponent(props) {
     return (
         <Link className={styles.card} to={`/playlist/${playlist.id}/`}>
             <img
-                src={thumbnail} // add playList.coverImage when possible
+                src={playlist.image_url ? playlist.image_url : thumbnail}
                 alt="The thumbnail of the playlist"
                 className={styles.card__img}
             />

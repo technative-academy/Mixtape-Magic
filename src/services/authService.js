@@ -12,12 +12,19 @@ const login = async (email, password) => {
         method: 'POST',
         body: JSON.stringify({ email, password }),
     })
+    const user = {}
 
     if (response.accessToken) {
         sessionStorage.setItem('accessToken', response.accessToken)
     }
 
-    return { id: response.id, username: response.username }
+    if (response.id && response.username) {
+        user.id = response.id
+        user.username = response.username
+        sessionStorage.setItem('user', JSON.stringify(user))
+    }
+
+    return user
 }
 
 const logout = async () => {
@@ -25,6 +32,7 @@ const logout = async () => {
         method: 'POST',
     })
     sessionStorage.removeItem('accessToken')
+    sessionStorage.removeItem('user')
 }
 
 const getAccessToken = () => {
@@ -47,6 +55,10 @@ const isLoggedIn = () => {
     return !!sessionStorage.getItem('accessToken')
 }
 
+const getUser = () => {
+    return JSON.parse(sessionStorage.getItem('user'))
+}
+
 export default {
     register,
     login,
@@ -54,4 +66,5 @@ export default {
     getAccessToken,
     refreshAccessToken,
     isLoggedIn,
+    getUser,
 }
