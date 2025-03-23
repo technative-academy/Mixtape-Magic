@@ -16,4 +16,10 @@
         padding: 0;
         margin-bottom: 1em;
     }
+
+    p {
+        color: var(--clr-light);
+        margin-block: 0em 1em;
+        font-size: 1.4rem;
+    }
 }

@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { fetchPlaylistById } from '../../slices/singlePlaylistSlice'
+import { deleteSong } from '../../slices/myPlaylistSlice'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PlaylistNav from '../../components/ui/playlistNav/PlaylistNav'
@@ -25,6 +26,23 @@ const Playlist = () => {
             dispatch(fetchPlaylistById(id))
         }
     }, [dispatch, id])
+
+    const { user } = useSelector((state) => state.auth)
+    const [userOwnedPlaylist, setUserOwnedPlaylist] = useState(false)
+
+    useEffect(() => {
+        if (user && playlist) {
+            setUserOwnedPlaylist(user.id === playlist.owner.id)
+        }
+    }, [user, playlist])
+
+    const handleDeleteSong = (songId) => {
+        dispatch(deleteSong({ songId, playlistId: id }))
+            .then(() => {
+                dispatch(fetchPlaylistById(id))
+            })
+            .catch((error) => console.error('Error deleting song:', error))
+    }
 
     if (!id) {
         return <div>No playlist selected.</div>
@@ -59,12 +77,25 @@ const Playlist = () => {
                                 )}
                             </p>
                         </div>
-                        <Link
-                            className={playlistStyles.playlist__edit}
-                            to={`/playlist/${id}/edit/`}
-                        >
-                            Edit Playlist
-                        </Link>
+
+                        {userOwnedPlaylist && (
+                            <>
+                                <Link
+                                    className={playlistStyles.playlist__edit}
+                                    to={`/playlist/${id}/edit/`}
+                                >
+                                    Edit Playlist
+                                </Link>
+
+                                <Link
+                                    className={playlistStyles.playlist__edit}
+                                    to={`/playlist/${id}/add-song/`}
+                                >
+                                    Add song
+                                </Link>
+                            </>
+                        )}
+
                         {playlist.songs.length > 0 ? (
                             <>
                                 {' '}
@@ -79,10 +110,26 @@ const Playlist = () => {
                                         <p>{song.artist}</p>
                                         <audio controls>
                                             <source
-                                                src={audio} // add this later on when we get real tracks {`${import.meta.env.VITE_API_URL}/${song.file}`}
+                                                src={
+                                                    song.song_url
+                                                        ? song.song_url
+                                                        : audio
+                                                }
                                                 type="audio/mpeg"
                                             />
                                         </audio>
+                                        {userOwnedPlaylist && (
+                                            <button
+                                                className={
+                                                    playlistStyles.playlist__edit
+                                                }
+                                                onClick={() =>
+                                                    handleDeleteSong(song.id)
+                                                }
+                                            >
+                                                Delete
+                                            </button>
+                                        )}
                                     </div>
                                 ))}
                             </>
@@ -94,9 +141,12 @@ const Playlist = () => {
                     </section>
                     <section className={playlistStyles.playlist__thumbnail}>
                         <img
-                            // src={`${import.meta.env.VITE_API_URL}/${playlist.coverImage}`} save this for when images work from the backend
-                            src={thumbnail}
                             className={playlistStyles.playlist__thumbnail__img}
+                            src={
+                                playlist.image_url
+                                    ? playlist.image_url
+                                    : thumbnail
+                            }
                             alt="Playlist Cover"
                         />
                         <p className={playlistStyles.playlist__thumbnail__tag}>
