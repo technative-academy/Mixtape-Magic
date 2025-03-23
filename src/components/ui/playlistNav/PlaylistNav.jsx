@@ -4,11 +4,21 @@ import { NavLink } from 'react-router-dom'
 
 function PlaylistNav() {
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
-    const links = []
+    const path = window.location.pathname
+    const links = [{ label: 'Home', url: '/' }]
 
-    if (isLoggedIn) {
+    if (
+        (path == '/' || path == '/users/' || path == '/myplaylists/') &&
+        isLoggedIn
+    ) {
         links.push({ label: 'My Playlists', url: '/myplaylists/' })
         links.push({ label: 'Users', url: '/users/' })
+    } else {
+        links.pop()
+        links.push({ label: 'back', url: '/' })
+    }
+
+    if (isLoggedIn) {
         links.push({
             label: 'New Playlist',
             url: '/playlist/add/',
@@ -18,13 +28,6 @@ function PlaylistNav() {
 
     return (
         <div className={styles.playlistNav}>
-            <NavLink
-                to="/"
-                className={({ isActive }) => (isActive ? styles.active : 'no')}
-            >
-                Home
-            </NavLink>
-
             {links.map((link) => (
                 <NavLink
                     to={link.url}
