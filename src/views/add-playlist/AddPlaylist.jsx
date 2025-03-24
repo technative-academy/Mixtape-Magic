@@ -50,20 +50,17 @@ const AddPlaylist = () => {
                     ></textarea>
                 </div>
                 <div className={formstyles.form__group}>
-                    <label htmlFor="coverImage">Paste URL to cover image</label>
+                    <label htmlFor="coverImage">
+                        Paste URL to cover image - Upload from link online
+                    </label>
                     <input
                         type="text"
                         name="coverImage"
-                        placeholder="Cover Image URL"
-                        className="w-full p-2 border mb-3"
+                        placeholder="Cover Image URL (https://)"
                         onChange={handleChange}
                     />
                 </div>
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
-                    disabled={status === 'loading'}
-                >
+                <button type="submit" disabled={status === 'loading'}>
                     {status === 'loading' ? 'Creating...' : 'Create Playlist'}
                 </button>
             </form>

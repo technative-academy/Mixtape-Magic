@@ -27,7 +27,6 @@
         color: var(--clr-dark);
         padding-right: 0.5em;
     }
-
     a:first-of-type {
         margin-left: 0;
         background-color: var(--clr-grey);

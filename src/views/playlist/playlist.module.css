@@ -36,7 +36,7 @@
             font-weight: 600;
             font-size: 0.9rem;
             display: inline-block;
-            margin-block: 1.5em 2.25em;
+            margin-block: 1.5em;
 
             &:last-of-type {
                 margin-left: 1em;
@@ -44,6 +44,7 @@
         }
 
         .playlist__song {
+            margin-top: 1.5em;
             background-color: rgb(27, 28, 29);
             padding: 0.25em 1em 0.5em;
             margin-bottom: 0.5em;
@@ -77,6 +78,12 @@
             &:focus {
                 color: var(--clr-accent);
                 cursor: pointer;
+            }
+
+            button {
+                width: max-content;
+                margin: 0;
+                margin-bottom: 1em;
             }
         }
     }
