@@ -20,11 +20,20 @@
         }
     }
 
-    a:last-of-type {
+    a:last-of-type,
+    a:first-of-type {
         margin-left: auto;
         background-color: var(--clr-accent);
         color: var(--clr-dark);
         padding-right: 0.5em;
+    }
+
+    a:first-of-type {
+        margin-left: 0;
+        background-color: var(--clr-grey);
+        outline: solid 1px var(--clr-dark-100);
+        color: var(--clr-light);
+        padding-right: 5em;
     }
 
     .active {

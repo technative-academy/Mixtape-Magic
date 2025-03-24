@@ -7,10 +7,15 @@ import { formatDistanceToNow } from 'date-fns'
 
 function CardComponent(props) {
     const { playlist } = props
+    console.log(thumbnail)
     return (
         <Link className={styles.card} to={`/playlist/${playlist.id}/`}>
             <img
-                src={playlist.image_url ? playlist.image_url : thumbnail}
+                src={
+                    playlist.image_url && playlist.image_url.trim()
+                        ? playlist.image_url
+                        : thumbnail
+                }
                 alt="The thumbnail of the playlist"
                 className={styles.card__img}
             />
