@@ -11,8 +11,10 @@ function PlaylistNav() {
         if (isLoggedIn) {
             links.push({ label: 'My Playlists', url: '/myplaylists/' })
             links.push({ label: 'Users', url: '/users/' })
-        } else {
         }
+    } else {
+        links.pop()
+        links.push({ label: 'Back', url: '/' })
     }
 
     if (isLoggedIn) {

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../slices/authSlice'
-import LoadingComponent from '../../components/ui/loadingComponent/LoadingComponent'
 import styles from '../../views/login/login.module.css'
 import Form from '../../components/ui/form/Form'
 

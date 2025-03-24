@@ -58,19 +58,17 @@ const AddSong = () => {
                     />
                 </div>
                 <div className={formstyles.form__group}>
-                    <label htmlFor="description">Song URL</label>
+                    <label htmlFor="description">
+                        Song URL - Upload from link online
+                    </label>
                     <input
                         type="text"
                         name="file"
-                        placeholder="Song URL"
+                        placeholder="Song URL (https://)"
                         onChange={handleChange}
                     />
                 </div>
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
-                    disabled={status === 'loading'}
-                >
+                <button type="submit" disabled={status === 'loading'}>
                     {status === 'loading' ? 'Adding...' : 'Add song'}
                 </button>
             </form>

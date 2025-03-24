@@ -80,7 +80,7 @@ const Edit = () => {
                     />
                 </div>
                 <div className={formStyles.form__group}>
-                    <label>Cover Image URL</label>
+                    <label>Cover Image URL - Upload from link online</label>
                     <input
                         type="text"
                         name="coverImage"
