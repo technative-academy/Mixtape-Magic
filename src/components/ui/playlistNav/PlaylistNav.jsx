@@ -7,15 +7,12 @@ function PlaylistNav() {
     const path = window.location.pathname
     const links = [{ label: 'Home', url: '/' }]
 
-    if (
-        (path == '/' || path == '/users/' || path == '/myplaylists/') &&
-        isLoggedIn
-    ) {
-        links.push({ label: 'My Playlists', url: '/myplaylists/' })
-        links.push({ label: 'Users', url: '/users/' })
-    } else {
-        links.pop()
-        links.push({ label: 'back', url: '/' })
+    if (path == '/' || path == '/users/' || path == '/myplaylists/') {
+        if (isLoggedIn) {
+            links.push({ label: 'My Playlists', url: '/myplaylists/' })
+            links.push({ label: 'Users', url: '/users/' })
+        } else {
+        }
     }
 
     if (isLoggedIn) {

@@ -12,9 +12,14 @@
 
         .playlist__songs__info {
             display: flex;
-            font-size: 0.85rem;
+            margin-top: 1em;
             gap: 1em;
             align-items: end;
+
+            p {
+                margin: 0;
+                font-size: 0.85rem;
+            }
 
             *:hover,
             *:focus {
@@ -32,6 +37,10 @@
             font-size: 0.9rem;
             display: inline-block;
             margin-block: 1.5em 2.25em;
+
+            &:last-of-type {
+                margin-left: 1em;
+            }
         }
 
         .playlist__song {
@@ -79,6 +88,8 @@
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             width: 100%;
+            max-height: 335px;
+            object-fit: cover;
         }
 
         .playlist__thumbnail__tag {
@@ -87,6 +98,7 @@
             display: inline-block;
             border-radius: calc(var(--border-radius) * 2);
             padding: 0.5em 1em;
+            font-size: 0.95rem;
             margin-right: 0.5em;
             color: var(--clr-accent);
         }
@@ -94,8 +106,8 @@
         .playlist__thumbnail__desc {
             border-radius: var(--border-radius);
             background-color: var(--clr-grey);
-            padding: 0.05em 1em 0.5em;
-            margin-top: 1em;
+            padding: 0.5em 1em 0.5em;
+            margin-top: 0.5em;
 
             p {
                 font-size: 0.95rem;
@@ -112,6 +124,6 @@
 .empty {
     text-align: center;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 3rem !important;
     opacity: 0.5;
 }

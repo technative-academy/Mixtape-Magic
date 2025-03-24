@@ -7,7 +7,6 @@
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: box-shadow 350ms ease-out;
-
     display: flex;
     gap: 1em;
     position: relative;
@@ -15,7 +14,9 @@
     .card__img {
         border-radius: 10px;
         width: 40%;
+        max-height: 200px;
         flex-shrink: 0;
+        object-fit: cover;
     }
 
     div {
@@ -38,7 +39,7 @@
         text-transform: lowercase;
         padding: 0.5em;
         margin-right: 0.25em;
-        margin-top: 0.5em;
+        margin-block: 0.5em 1.5em;
         color: var(--clr-accent);
         display: inline-block;
     }

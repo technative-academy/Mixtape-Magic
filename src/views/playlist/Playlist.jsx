@@ -139,11 +139,12 @@ const Playlist = () => {
                             </p>
                         )}
                     </section>
+
                     <section className={playlistStyles.playlist__thumbnail}>
                         <img
                             className={playlistStyles.playlist__thumbnail__img}
                             src={
-                                playlist.image_url
+                                playlist.image_url && playlist.image_url.trim()
                                     ? playlist.image_url
                                     : thumbnail
                             }

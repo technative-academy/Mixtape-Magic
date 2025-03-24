@@ -45,23 +45,22 @@ function CardComponentList(props) {
     return (
         <div>
             <div className={styles.sortSearchContainer}>
-                <div>
-                    <select
-                        onChange={handleSortChange}
-                        value={sortOption}
-                        className={styles.sortSelect}
-                    >
-                        <option value="none">No Sort</option>
-                        <option value="name">Sort by Name</option>
-                        <option value="date">Sort by Date</option>
-                    </select>
-                </div>
                 <Search
                     playlists={playlists}
                     onSearch={(filtered) => setFilteredPlaylists(filtered)}
                 />
+
+                <select
+                    onChange={handleSortChange}
+                    value={sortOption}
+                    className={styles.sortSelect}
+                >
+                    <option value="none">No Sort</option>
+                    <option value="name">Sort by Name</option>
+                    <option value="date">Sort by Date</option>
+                </select>
             </div>
-            <div className={styles.playlists}>
+            <section className={styles.playlists}>
                 {status === 'loading' && <LoadingComponent />}
                 {status === 'failed' && <div>{error}</div>}
                 {filteredPlaylists.length === 0 && status === 'succeeded' && (
@@ -72,7 +71,7 @@ function CardComponentList(props) {
                 {filteredPlaylists.map((playlist) => (
                     <CardComponent key={playlist.id} playlist={playlist} />
                 ))}
-            </div>
+            </section>
         </div>
     )
 }
